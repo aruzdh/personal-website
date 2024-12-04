@@ -27,11 +27,11 @@ export const About: React.FC = () => {
           <p>
             Well, my (real) name is <label className="myname">Carlos</label>,
             but you can call me either <label className="myname">Aru</label> or{" "}
-            <label className="myname">Arufth</label>
+            <label className="myname">Aruzdh</label>
           </p>
           <p>
-            I'm a 20-year-old Software Engineering student, but I'm also really
-            into everything related to{" "}
+            I'm a 20-year-old Computer Science student, and that's the reason
+            why I'm really into everything related to{" "}
             <label className="cs">Computer Science</label>; I fell in love with
             how things work under the hood.
           </p>

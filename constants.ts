@@ -9,11 +9,11 @@ export const LINKS = Object.values(SECTIONS);
 export const TABS = Object.values(SECTIONS);
 
 export const SOCIAL_MEDIA = {
-  GITHUB: "https://github.com/arufth",
-  X: "https://x.com/arufth",
-  BLUESKY: "https://bsky.app/profile/arufth.bsky.social",
-  LEETCODE: "https://leetcode.com/u/arufth/",
-  LINKEDIN: "https://www.linkedin.com/in/arufth/",
+  GITHUB: "https://github.com/aruzdh",
+  X: "https://x.com/aruzdh",
+  BLUESKY: "https://bsky.app/profile/aruzdh.bsky.social",
+  LEETCODE: "https://leetcode.com/u/aruzdh/",
+  LINKEDIN: "https://www.linkedin.com/in/aruzdh/",
 };
 
 export const CURRENT_LANGS = {
@@ -33,4 +33,4 @@ export const FUTURE_LANGS = {
   OCAML: "OCaml",
 };
 
-export const EMAIL = "arufthh@gmail.com";
+export const EMAIL = "aruzdh@gmail.com";
