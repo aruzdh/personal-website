@@ -7,7 +7,7 @@
       "description": "This project is an implementation of the 'Ray Tracing in a Weekend' series by Peter Shirley, adapted to the Rust programming language.",
       "keywords": ["rust", "ray tracing"],
       "status": "active",
-      "github": "https://github.com/arufth/ray-tracer",
+      "github": "https://github.com/aruzdh/ray-tracer",
       "demo": "",
       "image": "/ray-tracer.webp"
     },
@@ -18,7 +18,7 @@
       "description": "This application is designed to help users organize their garden. It allows users to add plants, create a garden layout, and track the growth of their plants.",
       "keywords": ["typescript", "react", "router", "redux"],
       "status": "active",
-      "github": "https://github.com/arufth/garden-organizer",
+      "github": "https://github.com/aruzdh/garden-organizer",
       "demo": "https://garden-organizer.netlify.app/garden/element-view",
       "image": "/garden-organizer.webp"
     },
@@ -29,7 +29,7 @@
       "description": "A web application that allows users to manage their tasks. It lets users filter tasks by status and importance, in addition to the usual CRUD operations. With color coding, users can easily identify the status of each task.",
       "keywords": ["typescript", "react"],
       "status": "active",
-      "github": "https://github.com/arufth/task-manager",
+      "github": "https://github.com/aruzdh/task-manager",
       "demo": "https://minimalist-task-manager.netlify.app/",
       "image": "/task-manager.webp"
     },
@@ -40,20 +40,9 @@
       "description": "A simple but efficient URL shortener built with React. It's designed to quickly generate shortened URLs and provide a user-friendly interface.",
       "status": "active",
       "keywords": ["react", "javascript", "API"],
-      "github": "https://github.com/arufth/url-shortener",
+      "github": "https://github.com/aruzdh/url-shortener",
       "demo": "https://dummy-url-shortener.netlify.app/",
       "image": "/url-shortener.webp"
-    },
-    {
-      "id": 5,
-      "name": "Dummy Commands",
-      "subtitle": "Recreating commands using Node.js",
-      "description": "This project is designed to recreate the functionality of some Linux commands using Node.js.",
-      "keywords": ["node.js", "javascript", "linux"],
-      "status": "active",
-      "github": "https://github.com/arufth/dummy-commands",
-      "demo": "",
-      "image": ""
     }
   ]
 }
