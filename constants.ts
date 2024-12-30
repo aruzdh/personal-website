@@ -8,12 +8,14 @@ export const SECTIONS = {
 export const LINKS = Object.values(SECTIONS);
 export const TABS = Object.values(SECTIONS);
 
+export const username = "aruzdh";
+
 export const SOCIAL_MEDIA = {
-  GITHUB: "https://github.com/aruzdh",
-  X: "https://x.com/aruzdh",
-  BLUESKY: "https://bsky.app/profile/aruzdh.bsky.social",
-  LEETCODE: "https://leetcode.com/u/aruzdh/",
-  LINKEDIN: "https://www.linkedin.com/in/aruzdh/",
+  GITHUB: "https://github.com/SOCIAL_MEDIA",
+  X: "https://x.com/SOCIAL_MEDIA",
+  BLUESKY: "https://bsky.app/profile/SOCIAL_MEDIA.bsky.social",
+  LEETCODE: "https://leetcode.com/u/SOCIAL_MEDIA/",
+  LINKEDIN: "https://www.linkedin.com/in/SOCIAL_MEDIA/",
 };
 
 export const CURRENT_LANGS = {
@@ -23,7 +25,7 @@ export const CURRENT_LANGS = {
   PYTHON: "Python",
   JAVASCRIPT: "Javascript",
   HASKELL: "Haskell",
-  SML: "SML",
+  RUBY: "Ruby",
 };
 
 export const FUTURE_LANGS = {
