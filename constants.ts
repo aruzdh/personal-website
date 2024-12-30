@@ -11,11 +11,11 @@ export const TABS = Object.values(SECTIONS);
 export const username = "aruzdh";
 
 export const SOCIAL_MEDIA = {
-  GITHUB: "https://github.com/SOCIAL_MEDIA",
-  X: "https://x.com/SOCIAL_MEDIA",
-  BLUESKY: "https://bsky.app/profile/SOCIAL_MEDIA.bsky.social",
-  LEETCODE: "https://leetcode.com/u/SOCIAL_MEDIA/",
-  LINKEDIN: "https://www.linkedin.com/in/SOCIAL_MEDIA/",
+  GITHUB: "https://github.com/${username}",
+  X: "https://x.com/${username}",
+  BLUESKY: "https://bsky.app/profile/${username}.bsky.social",
+  LEETCODE: "https://leetcode.com/u/${username}/",
+  LINKEDIN: "https://www.linkedin.com/in/${username}/",
 };
 
 export const CURRENT_LANGS = {
