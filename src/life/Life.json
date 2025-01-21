@@ -8,24 +8,24 @@
   },
   {
     "id": 2,
-    "title": "School day",
+    "title": "A relaxing view",
     "path": "/2.webp",
+    "category": ["life", "nature"],
+    "date": "2024-08-11"
+  },
+  {
+    "id": 3,
+    "title": "School day",
+    "path": "/3.webp",
     "category": ["life", "school"],
     "date": "2025-01-15"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "On my way to school",
-    "path": "/3.webp",
+    "path": "/4.webp",
     "category": ["life", "school"],
     "date": "2025-01-10"
-  },
-  {
-    "id": 4,
-    "title": "A relaxing view",
-    "path": "/4.webp",
-    "category": ["life", "nature"],
-    "date": "2024-08-11"
   },
   {
     "id": 5,
@@ -45,7 +45,7 @@
     "id": 7,
     "title": "A tiny pet",
     "path": "/7.webp",
-    "category": ["life", "nature"],
+    "category": ["life", "nature", "gardening"],
     "date": "2024-09-27"
   },
   {
