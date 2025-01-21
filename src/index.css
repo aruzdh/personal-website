@@ -37,7 +37,7 @@
   --orange: #d65d0e;
   --orange0: #af3a03;
 
-  font-family: "Fira Code", monospace;
+  font-family: "JetBrains Mono", "Fira Code", monospace;
 }
 
 #root {
@@ -53,4 +53,3 @@ body {
   display: flex;
   background: var(--bg);
 }
-
