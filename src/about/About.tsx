@@ -30,10 +30,10 @@ export const About: React.FC = () => {
             <label className="myname">Aruzdh</label>
           </p>
           <p>
-            I'm a 20-year-old Computer Science student, and that's the reason
-            why I'm really into everything related to{" "}
-            <label className="cs">Computer Science</label>; I fell in love with
-            how things work under the hood.
+            I'm a 21-year-old <label className="cs">Computer Science</label>{" "}
+            student, and that's the reason why I'm really into everything about
+            low-lever programming; I fell in love with how things work under the
+            hood.
           </p>
           <p>
             My favorite language is <label className="rust">Rust</label>, and as
