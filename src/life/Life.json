@@ -8,65 +8,65 @@
   },
   {
     "id": 2,
-    "title": "My (second) home",
+    "title": "School day",
     "path": "/2.webp",
+    "category": ["life", "school"],
+    "date": "2025-01-15"
+  },
+  {
+    "id": 3,
+    "title": "On my way to school",
+    "path": "/3.webp",
+    "category": ["life", "school"],
+    "date": "2025-01-10"
+  },
+  {
+    "id": 4,
+    "title": "A relaxing view",
+    "path": "/4.webp",
     "category": ["life", "nature"],
     "date": "2024-08-11"
   },
   {
-    "id": 3,
+    "id": 5,
     "title": "The best TV show ever",
-    "path": "/3.webp",
+    "path": "/5.webp",
     "category": ["life", "tech", "games"],
     "date": "2024-09-13"
   },
   {
-    "id": 4,
-    "title": "A tiny pet",
-    "path": "/4.webp",
-    "category": ["life", "nature"],
-    "date": "2024-09-27"
-  },
-  {
-    "id": 5,
-    "title": "The best game ever",
-    "path": "/5.webp",
-    "category": ["life", "tech", "games"],
-    "date": "2024-06-22"
-  },
-  {
     "id": 6,
-    "title": "Life would be awful without carrots",
+    "title": "Ngl, I love VIM",
     "path": "/6.webp",
-    "category": ["life", "gardening"],
-    "date": "2024-08-16"
-  },
-  {
-    "id": 7,
-    "title": "Ngl, I love VIM (motions)",
-    "path": "/7.webp",
     "category": ["life", "tech", "study"],
     "date": "2024-06-13"
   },
   {
+    "id": 7,
+    "title": "A tiny pet",
+    "path": "/7.webp",
+    "category": ["life", "nature"],
+    "date": "2024-09-27"
+  },
+  {
     "id": 8,
-    "title": "My first day in my garden",
+    "title": "The best game ever",
     "path": "/8.webp",
+    "category": ["life", "tech", "games"],
+    "date": "2024-06-22"
+  },
+  {
+    "id": 9,
+    "title": "My first day in my garden",
+    "path": "/9.webp",
     "category": ["life", "gardening"],
     "date": "2024-06-13"
   },
   {
-    "id": 9,
-    "title": "It broke down again",
-    "path": "/9.webp",
-    "category": ["life", "tech"],
-    "date": "2024-07-21"
-  },
-  {
     "id": 10,
-    "title": "Another day in the garden",
+    "title": "Life would be awful without carrots",
     "path": "/10.webp",
     "category": ["life", "gardening"],
-    "date": "2024-07-26"
+    "date": "2024-08-16"
   }
 ]
