@@ -18,9 +18,84 @@
     }
   }
 
+  .studysessions {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .date {
+      color: var(--orange);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .community {
+      color: var(--green);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .notes {
+      color: var(--blue);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .ssview {
+      color: var(--purple);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .setup {
+      color: var(--yellow);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .etc {
+      color: var(--red);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .personal-view {
+      color: var(--green);
+      font-weight: 500;
+      letter-spacing: 0.05rem;
+    }
+
+    .study-session-view {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      small {
+        color: var(--fg3);
+        font-size: 0.6rem;
+      }
+    }
+  }
+
   .rust {
     color: var(--orange);
     font-weight: 500;
+  }
+
+  .cpp {
+    color: var(--blue);
+  }
+
+  .main-lang {
+    color: var(--green);
   }
 
   .languages {
@@ -53,16 +128,8 @@
       color: var(--blue0);
     }
 
-    .Javascript {
-      color: var(--yellow);
-    }
-
     .Haskell {
       color: var(--purple);
-    }
-
-    .Ruby {
-      color: var(--red);
     }
 
     .C {
@@ -132,11 +199,11 @@
     color: var(--green);
   }
 
-  .cucumber {
+  .zucchini {
     color: var(--green0);
   }
 
-  .waterm {
+  .coriander {
     color: var(--orange);
   }
 

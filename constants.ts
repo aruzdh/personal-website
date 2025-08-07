@@ -13,23 +13,21 @@ export const username = "aruzdh";
 export const SOCIAL_MEDIA = {
   GITHUB: `https://github.com/${username}`,
   X: `https://x.com/${username}`,
-  BLUESKY: `https://bsky.app/profile/${username}.bsky.social`,
   LEETCODE: `https://leetcode.com/u/${username}/`,
   LINKEDIN: `https://www.linkedin.com/in/${username}/`,
 };
 
 export const CURRENT_LANGS = {
   RUST: "Rust",
-  TYPESCRIPT: "Typescript",
-  JAVA: "Java",
-  PYTHON: "Python",
-  JAVASCRIPT: "Javascript",
+  C: "C",
+  CPP: "C++",
   HASKELL: "Haskell",
-  RUBY: "Ruby",
+  PYTHON: "Python",
+  JAVA: "Java",
+  TYPESCRIPT: "Typescript",
 };
 
 export const FUTURE_LANGS = {
-  C: "C",
   ZIG: "Zig",
   GO: "Go",
   OCAML: "OCaml",

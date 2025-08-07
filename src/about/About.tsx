@@ -1,4 +1,4 @@
-// TODO: create sectios for each 'section' lol
+// TODO: create sections for each 'section' lol
 
 import { Divider, Header, Page, SocialMedia } from "../components";
 import { Link } from "react-router-dom";
@@ -26,8 +26,7 @@ export const About: React.FC = () => {
 
           <p>
             Well, my (real) name is <label className="myname">Carlos</label>,
-            but you can call me either <label className="myname">Aru</label> or{" "}
-            <label className="myname">Aruzdh</label>
+            but you can call me <label className="myname">Aru</label> (ngl, I really like it!).
           </p>
           <p>
             I'm a 21-year-old <label className="cs">Computer Science</label>{" "}
@@ -58,6 +57,37 @@ export const About: React.FC = () => {
                 {lang}
               </p>
             ))}
+          </section>
+          <p>
+            I have a confession to make: I know I've said that my fav lang is
+            <label className="rust"> Rust</label>, but I've been programming using
+            <label className="cpp"> C++</label> recently and I'm really getting into it! Idk, I just
+            started learning the syntax and suddenly it became my <label className="main-lang">main lang</label>.
+          </p>
+          <Divider />
+          <section className="studysessions">
+            <p>
+              <label className="date">In November 2024</label> I decided to create an
+              X/Twitter account with the main purpose of sharing my CS study sessions.
+              I quickly found a friendly community called
+              <label className="community"> "Study Buddy"</label> where lots of people
+              share their personal <label className="notes">notes</label>,
+              <label className="ssview"> study-session views</label>,
+              <label className="setup"> setups</label>, and several other
+              <label className="etc"> aesthetic things</label>.
+            </p>
+
+            <p>
+              For instance, this is my usual view when <label className="personal-view">I'm studying at home</label>. It looks nice, doesn't it?
+            </p>
+            <div className="study-session-view">
+              <img
+                src="/studysession.webp"
+                alt="A photo of a computer scientist's set up"
+              />
+
+              <small>I need coffee to work correctly</small>
+            </div>
           </section>
           <Divider />
           <p className="logical-problems">
@@ -102,16 +132,16 @@ export const About: React.FC = () => {
           </p>
           <p className="gardering-text">
             At the moment, I'm growing{" "}
-            <label className="waterm">watermelon</label>,{" "}
+            <label className="coriander">coriander</label>,{" "}
             <label className="tomato">tomato</label>,{" "}
-            <label className="cucumber">cucumber</label>,{" "}
+            <label className="zucchini">round zucchini</label>,{" "}
             <label className="corn">corn</label>,{" "}
             <label className="carrot">carrot</label>, and a couple more veggies.
             In the <Link to="/life">{SECTIONS.LIFE}</Link> tab, you'll find some
             photos I've taken so far.
           </p>
           <div className="gardering">
-            <img src="/8.webp" alt="A photo of radishes" />
+            <img src="/radish.webp" alt="A photo of radishes" />
             <small>This is the first one I took c:</small>
           </div>
         </section>

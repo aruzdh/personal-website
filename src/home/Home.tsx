@@ -9,14 +9,14 @@ export const Home: React.FC = () => {
       <main className="main-home">
         <Header
           title="Welcome to my website, I'm Aru!"
-          subtitle="a computer scientist and web developer."
+          subtitle="a 1.65-ish nerd and computer scientist"
         />
 
         <section className="mainText">
           <p>
             Here you can see my current active projects, find my social media if
-            you're interested in my hobbies and thoughts, and view a bunch of
-            photos from my day-to-day life. Enjoy them. :p
+            you're interested in my hobbies and study sessions, and view a bunch of
+            photos from my day-to-day life. I hope you enjoy them. :p
           </p>
         </section>
 

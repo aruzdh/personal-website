@@ -1,71 +1,71 @@
 [
   {
+    "id": 10,
+    "title": "A usual study sesion",
+    "path": "/setup.webp",
+    "category": ["life", "tech"],
+    "date": "2024-07-25"
+  },
+  {
+    "id": 3,
+    "title": "School day",
+    "path": "/FI.webp",
+    "category": ["life", "school"],
+    "date": "2025-01-15"
+  },
+  {
     "id": 1,
     "title": "I'll never use a normal keyboard again",
-    "path": "/1.webp",
+    "path": "/keyboard.webp",
     "category": ["life", "tech"],
     "date": "2024-07-25"
   },
   {
     "id": 2,
     "title": "A relaxing view",
-    "path": "/2.webp",
+    "path": "/view.webp",
     "category": ["life", "nature"],
     "date": "2024-08-11"
   },
   {
-    "id": 3,
-    "title": "School day",
-    "path": "/3.webp",
-    "category": ["life", "school"],
-    "date": "2025-01-15"
-  },
-  {
     "id": 4,
     "title": "On my way to school",
-    "path": "/4.webp",
+    "path": "/onmyway.webp",
     "category": ["life", "school"],
     "date": "2025-01-10"
   },
   {
     "id": 5,
     "title": "The best TV show ever",
-    "path": "/5.webp",
+    "path": "/mrrobot.webp",
     "category": ["life", "tech", "games"],
     "date": "2024-09-13"
   },
   {
     "id": 6,
     "title": "Ngl, I love VIM",
-    "path": "/6.webp",
+    "path": "/nvim.webp",
     "category": ["life", "tech", "study"],
     "date": "2024-06-13"
   },
   {
     "id": 7,
     "title": "A tiny pet",
-    "path": "/7.webp",
+    "path": "/pet.webp",
     "category": ["life", "nature", "gardening"],
     "date": "2024-09-27"
   },
   {
     "id": 8,
     "title": "The best game ever",
-    "path": "/8.webp",
+    "path": "/minecraft.webp",
     "category": ["life", "tech", "games"],
     "date": "2024-06-22"
   },
   {
     "id": 9,
-    "title": "My first day in my garden",
-    "path": "/9.webp",
-    "category": ["life", "gardening"],
-    "date": "2024-06-13"
-  },
-  {
-    "id": 10,
     "title": "Life would be awful without carrots",
-    "path": "/10.webp",
+    "path": "/carrots.webp",
     "category": ["life", "gardening"],
     "date": "2024-08-16"
   }
