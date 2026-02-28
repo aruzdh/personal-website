@@ -18,36 +18,29 @@ const allProjects = await getCollection('projects');
 
     <div class="projects-grid">
       {allProjects.map((project) => (
-        <article class="project-card">
-          <figure class="project-image">
-            <Image 
-              src={project.data.image} 
-              alt="atl"
-              width={800}
-              format="webp"
-              quality="high" 
-              loading="lazy" 
-            />
-          </figure>
+      <article class="project-card">
+        <figure class="project-image">
+          <Image src={project.data.image} alt={project.data.name} />
+        </figure>
 
-          <div class="project-info">
-            <h3>{project.data.name}</h3>
-            <p class="subtitle">{project.data.subtitle}</p>
-
-            <div class="keywords">
-              {project.data.keywords?.map((word) => (
-                <span class="tag" data-tag={word.toLowerCase()}>{word}</span>
-              ))}
-            </div>
-
-            <p class="description">{project.data.description}</p>
-
-            <footer class="project-links">
-              <a href={project.data.github} target="_blank">Source</a>
-              {project.data.demo && <a href={project.data.demo} target="_blank">Live Demo</a>}
-            </footer>
+        <div class="project-info">
+          <h3>{project.data.name}</h3>
+          <div class="keywords">
+            {project.data.keywords?.map((word) => (
+              <span class="tag">{word.toUpperCase()}</span>
+            ))}
           </div>
-        </article>
+
+          <p class="description">
+            {project.data.description}
+          </p>
+
+          <footer class="project-links">
+            <a href={project.data.github}>SOURCE_CODE</a>
+            {project.data.demo && <a href={project.data.demo}>LIVE_DEMO</a>}
+          </footer>
+        </div>
+      </article>
       ))}
     </div>
   </section>
@@ -55,75 +48,65 @@ const allProjects = await getCollection('projects');
 
 <style>
   .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
     margin-top: 2rem;
   }
 
   .project-card {
-    border: 1px solid var(--bg2);
-    background: var(--bg0_h);
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
+    border-left: 4px solid var(--border); 
+    padding-left: 1.5rem;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .project-card {
+      grid-template-columns: 1fr;
+    }
   }
 
   .project-image {
-    border: 1px solid var(--bg2);
-    margin-bottom: 1rem;
-    overflow: hidden;
+    position: relative;
+    aspect-ratio: 16 / 9;
+    align-self: center;
   }
 
   .project-image img {
     width: 100%;
-    height: auto;
-    filter: grayscale(20%); /* Retro hardware look */
+    height: 100%;
   }
 
   h3 {
-    color: var(--orange);
-    margin-bottom: 0.2rem;
-  }
-
-  .subtitle {
-    color: var(--gray);
-    font-size: 0.85rem;
-    font-family: monospace;
-  }
-
-  .keywords {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    margin: 0.8rem 0;
+    color: var(--fg);
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: 0;
   }
 
   .tag {
-    font-size: 0.75rem;
-    padding: 0.1rem 0.4rem;
-    border: 1px dashed var(--bg4);
-    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--fg-light);
   }
 
-  .tag[data-tag="rust"] { color: var(--orange); }
-  .tag[data-tag="typescript"] { color: var(--blue); }
+  .tag::before { content: "[ "; }
+  .tag::after { content: " ]"; }
 
   .description {
-    font-size: 0.9rem;
-    flex-grow: 1;
-  }
-
-  .project-links {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+    border-bottom: 1px dashed var(--bg-alt);
+    padding-bottom: 1rem;
   }
 
   .project-links a {
+    font-size: 0.8rem;
+    font-weight: bold;
     color: var(--blue);
-    text-decoration: underline;
+    margin-right: 1rem;
   }
 </style>

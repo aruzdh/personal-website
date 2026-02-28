@@ -44,7 +44,7 @@ import gardenharvest from '../assets/about/radish.webp';
         <div class="lang-grid">
           {Object.values(TECH_STACK.CURRENT).map(
             (lang) =>
-              lang !== "Rust" && <span class="lang-chip" data-lang={lang}>{lang}</span>
+              lang !== "Rust" && <span class="lang-chip">{lang}</span>
           )}
         </div>
 
@@ -52,7 +52,7 @@ import gardenharvest from '../assets/about/radish.webp';
 
         <div class="lang-grid">
           {Object.values(TECH_STACK.FUTURE).map((lang) => (
-            <span class="lang-chip" data-lang={lang}>{lang}</span>
+            <span class="lang-chip" >{lang}</span>
           ))}
         </div>
       </section>
@@ -152,8 +152,7 @@ import gardenharvest from '../assets/about/radish.webp';
 
 <style>
   strong {
-    font-weight: 500;
-    color: var(--green);
+    font-weight: 900;
   }
 
   strong[data-lang="Rust"], strong[data-plant="coriander"] {
@@ -175,45 +174,8 @@ import gardenharvest from '../assets/about/radish.webp';
   .lang-chip {
     font-family: monospace;
     padding: 0.2rem 0.6rem;
-    border: 1px solid var(--bg2);
     font-size: 0.9rem;
     }
-
-  .lang-chip[data-lang="C"] {
-    color: var(--blue0);
-  }
-
-  .lang-chip[data-lang="C++"] {
-    color: var(--aqua0);
-  }
-
-  .lang-chip[data-lang="Java"] {
-    color: var(--red);
-  }
-
-  .lang-chip[data-lang="Python"] {
-    color: var(--blue);
-  }
-
-  .lang-chip[data-lang="Haskell"] {
-    color: var(--purple);
-  }
-
-  .lang-chip[data-lang="TypeScript"] {
-    color: var(--blue0);
-  }
-
-  .lang-chip[data-lang="Zig"] {
-    color: var(--yellow);
-  }
-
-  .lang-chip[data-lang="Go"] {
-    color: var(--blue0);
-  }
-
-  .lang-chip[data-lang="OCaml"] {
-    color: var(--orange);
-  }
 
   .display-box {
       margin: 2rem 0;

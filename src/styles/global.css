@@ -6,45 +6,24 @@
 }
 
 :root {
-  --bg: #fbf1c7;
-  --bg0_h: #f9f5d7;
-  --bg0: #fbf1c7;
-  --bg0_s: #f2e5bc;
-  --bg1: #ebdbb2;
-  --bg2: #d5c4a1;
-  --bg3: #bdae93;
-  --bg4: #a89984;
-  --red: #cc241d;
-  --red0: #9d0006;
-  --green: #98971a;
-  --green0: #79740e;
-  --yellow: #d79921;
-  --yellow0: #b57614;
-  --blue: #458588;
-  --blue0: #076678;
-  --purple: #b16286;
-  --purple0: #8f3f71;
-  --aqua: #689d6a;
-  --aqua0: #427b58;
-  --gray: #928374;
-  --gray0: #7c6f64;
-  --fg: #3c3836;
-  --fg0: #282828;
-  --fg1: #3c3836;
-  --fg2: #504945;
-  --fg3: #665c54;
-  --fg4: #7c6f64;
-  --orange: #d65d0e;
-  --orange0: #af3a03;
+  --bg: #ffffff;
+  --bg-alt: #f0f0f0;
+  --fg: #000000;
+  --fg-light: #555555;
+  --border: #000000;
 
-  font-family: "JetBrains Mono", "Google Sans Code", "Fira Code", monospace;
+  --blue: #076678;
+  --green: #98971a;
+  --orange: #af3a03;
+
+  font-family: "JetBrains Mono", monospace;
 }
 
 html, body {
   width: 100%;
   height: 100%;
   background: var(--bg);
-  color: var(--fg0);
+  color: var(--fg);
 }
 
 body {
@@ -56,4 +35,11 @@ body {
 p {
   margin-bottom: 1.2rem;
   line-height: 1.6;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }

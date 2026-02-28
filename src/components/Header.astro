@@ -2,13 +2,39 @@
 import Navbar from '../components/Navbar.astro';
 import Divider from '../components/Divider.astro';
 const { title, subtitle } = Astro.props;
+const today = new Date().toLocaleDateString('en-GB');
+const { pathname } = Astro.url;
+const isAboutPage = pathname === '/about' || pathname.startsWith('/about/');
 ---
 
 <header>
+  <div class="status-bar">
+    <span class="status-item">USER: ARU</span>
+    <span class="status-item">LOC: CDMX</span>
+    <span class="status-item date-display">{today}</span>
+    <span class="status-item blink">● LIVE</span>
+  </div>
+
   <section>
-    <img src="/ferris.gif" alt="Ferris" />
-    <h1>{title}</h1>
-    <h4>{subtitle}</h4>
+    <div class={`title-container ${isAboutPage ? 'pivoted' : ''}`}>
+      {
+        isAboutPage && (
+          <img src="/ferris-crab.gif" alt="Ferris" />
+        )
+      }
+      <h1>{title}</h1>
+      {
+        isAboutPage && (
+          <img src="/gopher.GIF" alt="Ferris" />
+        )
+      }
+    </div>
+
+    {
+      subtitle &&
+      <p class="subtitle">  {">> " + subtitle} </p>
+    }
+
   </section>
 
   <Navbar></Navbar>
@@ -26,18 +52,65 @@ const { title, subtitle } = Astro.props;
       align-items: center;
       margin-top: 24px;
 
-      img {
-        width: 300px;
-      }
-
       h1 {
         font-size: 1.4rem;
+        margin: 0;
       }
 
-      h4 {
-        color: var(--fg5);
+      .subtitle{
+        font-size: 0.85rem;
+        color: var(--fg-light);
+        margin: 0.5rem 0 0 0;
       }
     }
+
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .title-container.pivoted {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    width: 100%;
+  }
+
+  img {
+    height: 40px;
+  }
+
+  .title-container.pivoted img:first-of-type {
+    justify-self: end; 
+  }
+
+  .title-container.pivoted img:last-of-type {
+    justify-self: start;
+    margin-left: 2rem; 
+  }
+
+  .status-bar {
+    background: var(--border);
+    color: var(--bg);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 1rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  .blink {
+    color: red;
+    animation: pulse 1.3s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
   }
 </style>
 

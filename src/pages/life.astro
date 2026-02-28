@@ -1,88 +1,103 @@
 ---
-import { getCollection } from 'astro:content';
 import MainLayout from '../layouts/MainLayout.astro';
-import { Image } from 'astro:assets';
-
-const lifeEntries = (await getCollection('life')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
 ---
 
-<MainLayout title="POV: you're Aru" subtitle="these are a bunch of photos from my day-to-day">
-  <section class="life-container">
-    <div class="photo-grid">
-      {lifeEntries.map((entry) => (
-        <article class="log-entry">
-          <figure class="display-box">
-            <Image
-              src={entry.data.image} 
-              alt={entry.data.alt}
-              width={800} 
-              height={533}
-              format="webp"
-              quality="high" 
-              loading="lazy" 
-            />
+<MainLayout title="POV: ACCESS_DENIED" subtitle="This sector is currently undergoing maintenance.">
+  <section class="maintenance-container">
+    <div class="warning-box">
+      <div class="warning-header">
+        <span>! SYSTEM_ALERT</span>
+        <span>ERROR_CODE: 403_UNDER_CONSTRUCTION</span>
+      </div>
 
-            <figcaption>
-              <strong>{entry.data.title}</strong>
-              <span class="date-tag">{entry.data.date.toISOString().split('T')[0]}</span>
-            </figcaption>
-          </figure>
-        </article>
-      ))}
+      <div class="warning-body">
+        <p class="blink-text"> {">"} DATA_RETRIEVAL_FAILED</p>
+        <p>
+          The 'LIFE' module is currently being refactored. The database entries for day-to-day photos are offline for consistency checks.
+        </p>
+
+        <div class="ascii-art">
+          <pre>✖𐃷✖</pre>
+        </div>
+        
+        <p class="status-line">[ PROGRESS: ███░░░░░░░ 30% ]</p>
+      </div>
+      
+      <div class="warning-footer">
+        <a href="/" class="cmd-link">RETURN_TO_ROOT</a>
+      </div>
     </div>
   </section>
 </MainLayout>
 
 <style>
-  .photo-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(280px, 1fr));
-    gap: 2rem;
+  .maintenance-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 40vh;
+    padding: 2rem 0;
+  }
+
+  .warning-box {
+    border: 2px solid var(--border);
+    width: 100%;
+    max-width: 500px;
+    background: var(--bg);
+    box-shadow: 8px 8px 0px var(--border);
+  }
+
+  .warning-header {
+    background: var(--border);
+    color: var(--bg);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+  .warning-body {
+    padding: 2rem;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+  }
+
+  .blink-text {
+    color: red; 
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: blink 1s step-end infinite;
+  }
+
+  .ascii-art pre {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .status-line {
+    font-size: 0.75rem;
+    color: var(--fg-light);
     margin-top: 1rem;
   }
 
-  .display-box {
-    margin: 0;
-    border: 1px solid var(--bg2);
-    padding: 0.5rem;
-    background: var(--bg0_h);
-    transition: transform 0.2s ease;
+  .warning-footer {
+    border-top: 1px dashed var(--border);
+    padding: 1rem;
+    text-align: center;
   }
 
-  .display-box:hover {
-    transform: translateY(-4px);
+  .cmd-link {
+    color: var(--blue);
+    text-decoration: underline;
+    font-size: 0.8rem;
+    font-weight: bold;
   }
 
-  .display-box img {
-    width: 100%;
-    aspect-ratio: 3 / 4; 
-    object-fit: cover;
-    display: block;
-    border: 1px solid var(--bg2);
-  }
-
-  figcaption {
-    margin-top: 0.8rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    text-align: left;
-  }
-
-  strong {
-    color: var(--fg0);
-    font-size: 1rem;
-  }
-
-  .date-tag {
-    font-family: monospace;
-    font-size: 0.75rem;
-    color: var(--bg);
-    background: var(--fg4);
-    padding: 0.1rem 0.4rem;
-    width: fit-content;
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 </style>
-
