@@ -5,8 +5,8 @@ import SocialMediaLink from "./SocialMediaLink.astro"
 
 <section>
   {
-    Object.keys(SOCIAL_MEDIA).map((media) => (
-      <SocialMediaLink social_media={media}/>
+  Object.entries(SOCIAL_MEDIA).map(([name, url]) => (
+  <SocialMediaLink name={name} url={url}/>
     ))
   }
 </section>
