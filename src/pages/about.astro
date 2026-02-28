@@ -1,0 +1,248 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Divider from '../components/Divider.astro';
+import SocialMedia from '../components/SocialMedia.astro';
+import { Image } from 'astro:assets';
+import { SECTIONS, TECH_STACK, SOCIAL_MEDIA } from '../consts'; 
+
+import leetcodeImage from '../assets/about/leetcode.webp';
+import studysession from '../assets/about/studysession.webp';
+import gardenharvest from '../assets/about/radish.webp';
+---
+
+<MainLayout title="But, Who Am I?" subtitle="what do I do in my day-to-day? why are there a crab above?">
+  <section class="about-content">
+      <div class="social-media">
+        <p>
+          These are my 'social media':
+        </p>
+        <SocialMedia />
+      </div>
+
+      <Divider />
+
+      <section class="bio">
+        <p>
+          Well, my (real) name is <strong>Carlos</strong>,
+          but you can call me <strong>Aru</strong> (ngl, I really like it!).
+        </p>
+
+        <p>
+          I'm a 22-year-old <strong>Computer Science</strong> student, and
+          that's the reason why I'm really into everything about
+          low-lever programming; I fell in love with how things work under the
+          hood.
+        </p>
+
+        <p>
+          My favorite language is <strong data-lang="Rust">Rust</strong>, and as
+          you can imagine, that's the reason for that cute, tiny, eye-catching
+          crab moving side to side at the top of the page. Although, I usually
+          program in:
+        </p>
+
+        <div class="lang-grid">
+          {Object.values(TECH_STACK.CURRENT).map(
+            (lang) =>
+              lang !== "Rust" && <span class="lang-chip" data-lang={lang}>{lang}</span>
+          )}
+        </div>
+
+        <p>Also, I'd like to learn:</p>
+
+        <div class="lang-grid">
+          {Object.values(TECH_STACK.FUTURE).map((lang) => (
+            <span class="lang-chip" data-lang={lang}>{lang}</span>
+          ))}
+        </div>
+      </section>
+    
+      <Divider />
+
+      <section class="activity-log">
+        <p>
+          <strong>In November 2024</strong> I decided to create an
+          X/Twitter account with the main purpose of sharing my CS life.
+          I quickly found a friendly community called
+          <strong> "Study Buddy"</strong> where lots of people
+          share their personal <strong>notes</strong>,
+          <strong> study-session POV</strong>,
+          <strong> setups</strong>, and several other
+          <strong> aesthetic things</strong>.
+        </p>
+
+        <p>
+          For instance, this is my usual view when <strong>I'm studying at home</strong>. It looks nice, doesn't it?
+        </p>
+
+        <figure class="display-box">
+        <Image src={studysession} alt="CS study session" />
+          <figcaption>Home study environment.</figcaption>
+        </figure>
+      </section>
+
+      <Divider />
+
+      <section class="activity-log">
+        <p class="logical-problems">
+          One of the things I enjoy the most is solving logic problems. I'm
+          sure you're familiar with platforms like{" "}
+          <strong>LeetCode</strong> (my favorite btw ☝🏽🤓),{" "}
+          <strong>HackerRank</strong>,
+          <strong>CodeSignal</strong>,
+          <strong>CodeForces</strong>, and so on. I spend
+          around 2 hours a day solving these kinds of problems.
+        </p>
+
+        <p>
+          If you want to check out my profile, here's my LeetCode:
+        </p>
+
+        <figure class="display-box leetcode-box">
+         <Image src={leetcodeImage} alt="LeetCode profile" /> <a href={SOCIAL_MEDIA.LEETCODE} target="_blank">View Profile</a>
+        </figure>
+      </section>
+
+      <Divider />
+
+      <section class="activity-log">
+        <p>
+          Yup, I've talked about my current studies, my favorite languages,
+          and my obsession with LeetCode, but what do I do when I'm not
+          programming? Do I play LoL like an average CS or SWE?
+        </p>
+      </section>
+
+      <Divider />
+
+      <section class="activity-log">
+        <p>
+          I love <strong>gardening</strong>. For a
+          few months now, I've been growing various veggies in my garden. My
+          dad grew up in a rural area, so he knows a lot about this wonderful
+          world.
+        </p>
+
+        <p>
+          Actually ☝🏽🤓, that's the reason I developed a garden organizer,
+          which you can view in the{" "}
+          <a href="/projects">{SECTIONS.PROJECTS}</a> tab.
+        </p>
+
+        <p class="gardering-text">
+          At the moment, I'm growing{" "}
+          <strong>coriander</strong>,{" "}
+          <strong>tomato</strong>,{" "}
+          <strong>round zucchini</strong>,{" "}
+          <strong>corn</strong>,{" "}
+          <strong>carrot</strong>, and a couple more veggies.
+          In the <a href="/life">{SECTIONS.LIFE}</a> tab, you'll find some
+          photos I've taken so far.
+        </p>
+
+        <figure class="display-box garden-box">
+          <Image src={gardenharvest} alt="Garden harvest" />
+          <figcaption>First radish harvest.</figcaption>
+        </figure>
+
+      </section>
+
+  </section>
+</MainLayout>
+
+<style>
+  strong {
+    font-weight: 500;
+    color: var(--green);
+  }
+
+  strong[data-lang="Rust"], strong[data-plant="coriander"] {
+    color: var(--orange);
+  }
+
+  strong[data-lang="C++"], strong[data-site="LeetCode"] {
+    color: var(--blue);
+  }
+
+  .lang-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem 0 2rem;
+  }
+
+  .lang-chip {
+    font-family: monospace;
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--bg2);
+    font-size: 0.9rem;
+    }
+
+  .lang-chip[data-lang="C"] {
+    color: var(--blue0);
+  }
+
+  .lang-chip[data-lang="C++"] {
+    color: var(--aqua0);
+  }
+
+  .lang-chip[data-lang="Java"] {
+    color: var(--red);
+  }
+
+  .lang-chip[data-lang="Python"] {
+    color: var(--blue);
+  }
+
+  .lang-chip[data-lang="Haskell"] {
+    color: var(--purple);
+  }
+
+  .lang-chip[data-lang="TypeScript"] {
+    color: var(--blue0);
+  }
+
+  .lang-chip[data-lang="Zig"] {
+    color: var(--yellow);
+  }
+
+  .lang-chip[data-lang="Go"] {
+    color: var(--blue0);
+  }
+
+  .lang-chip[data-lang="OCaml"] {
+    color: var(--orange);
+  }
+
+  .display-box {
+      margin: 2rem 0;
+      border: 1px solid var(--bg2);
+      padding: 0.5rem;
+      background: var(--bg0_h);
+      text-align: center;
+    }
+
+  .display-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .garden-box img {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+
+  a {
+    color: var(--blue);
+    text-decoration: underline;
+  }
+</style>
+

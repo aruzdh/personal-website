@@ -1,0 +1,84 @@
+---
+import { TABS } from '../consts';
+const { pathname } = Astro.url;
+
+const isActive = (tab: string) => {
+  const currentPath = pathname.replace(/\/$/, "");
+  const targetPath = tab === 'Home' ? "" : `/${tab.toLowerCase()}`;
+  return currentPath === targetPath;
+};
+---
+
+<section>
+  <nav class="navbar">
+    <ul class="navbar-ul">
+      {TABS.map((tab) => (
+        <li>
+          <a 
+            href={tab === 'Home' ? '/' : `/${tab.toLowerCase()}`} 
+            class={isActive(tab) ? "active" : ""}
+          >
+          <span class="hidden">[</span>{tab}<span class="hidden">]</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</section>
+
+<style>
+  section {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+
+    .navbar {
+      
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .navbar-ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        list-style: none;
+        height: 100%;
+        width: 100%;
+
+        li {
+          a {
+            text-decoration: none;
+            color: var(--fg0);
+            font-size: 1rem;
+            transition: all 250ms ease;
+            display: inline-block;
+            transform-origin: center;
+            cursor: pointer;
+          }
+
+          a:hover {
+            color: var(--orange0);
+            transform: scale(1.2);
+            font-weight: bold;
+          }
+
+          .hidden {
+            opacity: 0;
+          }
+
+          .active {
+            color: var(--orange0);
+            font-weight: bold;
+            font-size: 1.1rem;
+
+            .hidden {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

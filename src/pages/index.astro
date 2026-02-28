@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import { EMAIL, SOCIAL_MEDIA } from '../consts'; 
+---
+
+<MainLayout title="Welcome to my website, I'm Aru!" subtitle="a 1.65-ish nerd and computer scientist">
+  <section class="intro">
+    <p>
+      Here you can see my current active projects, find my social media if you're interested in my hobbies and study sessions, and view a bunch of photos from my day-to-day life. I hope you enjoy them. :p
+    </p>
+
+    <p>
+      If you're just interested in work-related matters, here are some useful and quick links:
+    </p>
+
+    <div class="quick-links">
+      <a href={SOCIAL_MEDIA.GITHUB} rel="noreferrer" target="_blank">GitHub</a>
+      <a href={SOCIAL_MEDIA.LINKEDIN} rel="noreferrer" target="_blank">LinkedIn</a>
+    </div>
+
+    <p>This is my email:</p>
+    <a href={`mailto:${EMAIL}`} class="email-link">{EMAIL}</a>
+  </section>
+</MainLayout>
+
+<style>
+  .intro {
+    max-width: 650px;
+    line-height: 1.6;
+
+    p {
+      margin-bottom: 1em;
+    }
+  }
+
+  .quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .email-link {
+    display: flex;
+    justify-content: center;
+    color: var(--blue0);
+    text-decoration: underline;
+  }
+</style>

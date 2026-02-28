@@ -1,0 +1,23 @@
+---
+import { SOCIAL_MEDIA } from "../consts"
+import SocialMediaLink from "./SocialMediaLink.astro"
+---
+
+<section>
+  {
+    Object.keys(SOCIAL_MEDIA).map((media) => (
+      <SocialMediaLink social_media={media}/>
+    ))
+  }
+</section>
+
+<style>
+  section{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+
+  }
+</style>
+
+

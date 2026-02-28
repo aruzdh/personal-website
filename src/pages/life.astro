@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../layouts/MainLayout.astro';
+import { Image } from 'astro:assets';
+
+const lifeEntries = (await getCollection('life')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<MainLayout title="POV: you're Aru" subtitle="these are a bunch of photos from my day-to-day">
+  <section class="life-container">
+    <div class="photo-grid">
+      {lifeEntries.map((entry) => (
+        <article class="log-entry">
+          <figure class="display-box">
+            <Image
+              src={entry.data.image} 
+              alt={entry.data.alt}
+              width={800} 
+              height={533}
+              format="webp"
+              quality="high" 
+              loading="lazy" 
+            />
+
+            <figcaption>
+              <strong>{entry.data.title}</strong>
+              <span class="date-tag">{entry.data.date.toISOString().split('T')[0]}</span>
+            </figcaption>
+          </figure>
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .display-box {
+    margin: 0;
+    border: 1px solid var(--bg2);
+    padding: 0.5rem;
+    background: var(--bg0_h);
+    transition: transform 0.2s ease;
+  }
+
+  .display-box:hover {
+    transform: translateY(-4px);
+  }
+
+  .display-box img {
+    width: 100%;
+    aspect-ratio: 3 / 4; 
+    object-fit: cover;
+    display: block;
+    border: 1px solid var(--bg2);
+  }
+
+  figcaption {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    text-align: left;
+  }
+
+  strong {
+    color: var(--fg0);
+    font-size: 1rem;
+  }
+
+  .date-tag {
+    font-family: monospace;
+    font-size: 0.75rem;
+    color: var(--bg);
+    background: var(--fg4);
+    padding: 0.1rem 0.4rem;
+    width: fit-content;
+  }
+</style>
+

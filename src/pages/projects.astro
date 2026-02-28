@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import MainLayout from '../layouts/MainLayout.astro';
+import Divider from '../components/Divider.astro';
+
+const allProjects = await getCollection('projects');
+---
+
+<MainLayout title="These are my current side projects :)" subtitle="A collection of my software and system internals experiments.">
+  <section class="projects-container">
+    <p>
+      Here you can find my active software projects, ranging from 
+      <strong>low-level Rust</strong> implementations to <strong>TypeScript</strong> web tools.
+    </p>
+
+    <Divider />
+
+    <div class="projects-grid">
+      {allProjects.map((project) => (
+        <article class="project-card">
+          <figure class="project-image">
+            <Image 
+              src={project.data.image} 
+              alt="atl"
+              width={800}
+              format="webp"
+              quality="high" 
+              loading="lazy" 
+            />
+          </figure>
+
+          <div class="project-info">
+            <h3>{project.data.name}</h3>
+            <p class="subtitle">{project.data.subtitle}</p>
+
+            <div class="keywords">
+              {project.data.keywords?.map((word) => (
+                <span class="tag" data-tag={word.toLowerCase()}>{word}</span>
+              ))}
+            </div>
+
+            <p class="description">{project.data.description}</p>
+
+            <footer class="project-links">
+              <a href={project.data.github} target="_blank">Source</a>
+              {project.data.demo && <a href={project.data.demo} target="_blank">Live Demo</a>}
+            </footer>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .project-card {
+    border: 1px solid var(--bg2);
+    background: var(--bg0_h);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-image {
+    border: 1px solid var(--bg2);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(20%); /* Retro hardware look */
+  }
+
+  h3 {
+    color: var(--orange);
+    margin-bottom: 0.2rem;
+  }
+
+  .subtitle {
+    color: var(--gray);
+    font-size: 0.85rem;
+    font-family: monospace;
+  }
+
+  .keywords {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0.8rem 0;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    border: 1px dashed var(--bg4);
+    font-family: monospace;
+  }
+
+  .tag[data-tag="rust"] { color: var(--orange); }
+  .tag[data-tag="typescript"] { color: var(--blue); }
+
+  .description {
+    font-size: 0.9rem;
+    flex-grow: 1;
+  }
+
+  .project-links {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: monospace;
+  }
+
+  .project-links a {
+    color: var(--blue);
+    text-decoration: underline;
+  }
+</style>

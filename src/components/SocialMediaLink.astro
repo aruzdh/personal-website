@@ -1,0 +1,12 @@
+---
+const {social_media} = Astro.props;
+---
+
+<a
+  rel="noreferrer"
+  target="_blank"
+  href={social_media}
+>
+  {social_media.charAt(0).toUpperCase() + social_media.slice(1).toLowerCase()}
+</a>
+
