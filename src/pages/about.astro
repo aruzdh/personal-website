@@ -8,14 +8,15 @@ import { SECTIONS, TECH_STACK, SOCIAL_MEDIA } from '../consts';
 import leetcodeImage from '../assets/about/leetcode.webp';
 import studysession from '../assets/about/studysession.webp';
 import gardenharvest from '../assets/about/radish.webp';
+
+const currentLanguages = Object.values(TECH_STACK.CURRENT).filter(lang => lang !== "Rust");
+const futureLanguages = Object.values(TECH_STACK.FUTURE);
 ---
 
-<MainLayout title="But, Who Am I?" subtitle="what do I do in my day-to-day? why are there a crab above?">
+<MainLayout title="But, Who Am I?" subtitle="what do I do in my day-to-day? why is there a crab at the top?">
   <section class="about-content">
       <div class="social-media">
-        <p>
-          These are my 'social media':
-        </p>
+        <p>These are my 'social media':</p>
         <SocialMedia />
       </div>
 
@@ -30,7 +31,7 @@ import gardenharvest from '../assets/about/radish.webp';
         <p>
           I'm a 22-year-old <strong>Computer Science</strong> student, and
           that's the reason why I'm really into everything about
-          low-lever programming; I fell in love with how things work under the
+          low-level programming; I fell in love with how things work under the
           hood.
         </p>
 
@@ -41,18 +42,17 @@ import gardenharvest from '../assets/about/radish.webp';
           program in:
         </p>
 
-        <div class="lang-grid">
-          {Object.values(TECH_STACK.CURRENT).map(
-            (lang) =>
-              lang !== "Rust" && <span class="lang-chip">{lang}</span>
-          )}
+        <div class="lang-row">
+          {currentLanguages.map((lang) => (
+          <span class="lang-text" data-lang={lang}>{lang}</span>
+          ))}
         </div>
 
         <p>Also, I'd like to learn:</p>
 
-        <div class="lang-grid">
-          {Object.values(TECH_STACK.FUTURE).map((lang) => (
-            <span class="lang-chip" >{lang}</span>
+        <div class="lang-row">
+          {futureLanguages.map((lang) => (
+          <span class="lang-text" data-lang={lang}>{lang}</span>
           ))}
         </div>
       </section>
@@ -64,11 +64,11 @@ import gardenharvest from '../assets/about/radish.webp';
           <strong>In November 2024</strong> I decided to create an
           X/Twitter account with the main purpose of sharing my CS life.
           I quickly found a friendly community called
-          <strong> "Study Buddy"</strong> where lots of people
+          <strong>"Study Buddy"</strong> where lots of people
           share their personal <strong>notes</strong>,
-          <strong> study-session POV</strong>,
-          <strong> setups</strong>, and several other
-          <strong> aesthetic things</strong>.
+          <strong>study-session POV</strong>,
+          <strong>setups</strong>, and several other
+          <strong>aesthetic things</strong>.
         </p>
 
         <p>
@@ -76,7 +76,7 @@ import gardenharvest from '../assets/about/radish.webp';
         </p>
 
         <figure class="display-box">
-        <Image src={studysession} alt="CS study session" />
+          <Image src={studysession} alt="CS study session" />
           <figcaption>Home study environment.</figcaption>
         </figure>
       </section>
@@ -87,19 +87,22 @@ import gardenharvest from '../assets/about/radish.webp';
         <p class="logical-problems">
           One of the things I enjoy the most is solving logic problems. I'm
           sure you're familiar with platforms like{" "}
-          <strong>LeetCode</strong> (my favorite btw ☝🏽🤓),{" "}
+          <strong data-site="LeetCode">LeetCode</strong> (my favorite btw ☝🏽🤓),{" "}
           <strong>HackerRank</strong>,
           <strong>CodeSignal</strong>,
           <strong>CodeForces</strong>, and so on. I spend
           around 2 hours a day solving these kinds of problems.
         </p>
 
-        <p>
-          If you want to check out my profile, here's my LeetCode:
-        </p>
+        <p>If you want to check out my profile, here's my LeetCode:</p>
 
         <figure class="display-box leetcode-box">
-         <Image src={leetcodeImage} alt="LeetCode profile" /> <a href={SOCIAL_MEDIA.LEETCODE} target="_blank">View Profile</a>
+          <Image src={leetcodeImage} alt="LeetCode profile" /> 
+          <div class="action-footer">
+            <a href={SOCIAL_MEDIA.LEETCODE} target="_blank" rel="noreferrer" class="profile-btn">
+              {"=> "} VIEW_LEETCODE_PROFILE
+            </a>
+          </div>
         </figure>
       </section>
 
@@ -125,17 +128,14 @@ import gardenharvest from '../assets/about/radish.webp';
 
         <p>
           Actually ☝🏽🤓, that's the reason I developed a garden organizer,
-          which you can view in the{" "}
+          which you can (actually, it's gone, but you can take a look 
+          at my other projects lol) view in the{" "}
           <a href="/projects">{SECTIONS.PROJECTS}</a> tab.
         </p>
 
-        <p class="gardering-text">
-          At the moment, I'm growing{" "}
-          <strong>coriander</strong>,{" "}
-          <strong>tomato</strong>,{" "}
-          <strong>round zucchini</strong>,{" "}
-          <strong>corn</strong>,{" "}
-          <strong>carrot</strong>, and a couple more veggies.
+        <p class="gardening-text">
+          At the moment, I'm growing coriander, tomato, round zucchini, corn, 
+          carrot, and a couple more veggies.
           In the <a href="/life">{SECTIONS.LIFE}</a> tab, you'll find some
           photos I've taken so far.
         </p>
@@ -144,63 +144,111 @@ import gardenharvest from '../assets/about/radish.webp';
           <Image src={gardenharvest} alt="Garden harvest" />
           <figcaption>First radish harvest.</figcaption>
         </figure>
-
       </section>
-
   </section>
 </MainLayout>
 
 <style>
   strong {
-    font-weight: 900;
+    font-weight: bold;
+    color: var(--fg);
   }
 
-  strong[data-lang="Rust"], strong[data-plant="coriander"] {
+  strong[data-lang="Rust"], span[data-lang="OCaml"] {
     color: var(--orange);
   }
 
-  strong[data-lang="C++"], strong[data-site="LeetCode"] {
+  span[data-lang="C++"], span[data-lang="Python"], span[data-lang="C"] {
     color: var(--blue);
   }
 
-  .lang-grid {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 1rem 0 2rem;
+  span[data-lang="Haskell"] {
+    color: var(--purple0)
   }
 
-  .lang-chip {
-    font-family: monospace;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.9rem;
-    }
+  span[data-lang="Java"] {
+    color: var(--red)
+  }
+
+  span[data-lang="TypeScript"], span[data-lang="Go"] {
+    color: var(--cyan)
+  }
+
+  span[data-lang="Zig"] {
+    color: var(--yellow)
+  }
+
+  .lang-row {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.85rem;
+    margin: 1rem 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lang-text {
+    color: var(--fg-light);
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .lang-text::before {
+    content: "· ";
+    color: var(--blue);
+    margin-right: 0.25rem;
+  }
 
   .display-box {
-      margin: 1rem 0;
-      border: 1px solid var(--bg2);
-      padding: 0.5rem;
-      background: var(--bg0_h);
-      text-align: center;
-    }
+    margin: 1.5rem 0;
+    padding: 0.75rem;
+    background: var(--bg-alt);
+    text-align: center;
+  }
 
   .display-box img {
     width: 100%;
     height: auto;
     display: block;
-    margin-bottom: 1rem;
+    margin: 0 auto 0.75rem;
   }
 
   .garden-box img {
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .leetcode-box img {
+    max-width: 550px;
   }
 
   figcaption {
-    margin-top: 0.5rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    color: var(--fg-light);
+    text-transform: uppercase;
+  }
+
+  .action-footer {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+  }
+
+  .profile-btn {
+    display: inline-block;
+    color: var(--blue);
+    text-decoration: none;
+    font-family: var(--font-mono, monospace);
     font-size: 0.8rem;
-    color: var(--gray);
+    font-weight: bold;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .profile-btn:hover {
+    background-color: var(--blue);
+    color: var(--bg);
   }
 
   a {
@@ -208,5 +256,7 @@ import gardenharvest from '../assets/about/radish.webp';
     text-decoration: underline;
   }
 
+  .gardening-text {
+    margin-top: 1rem;
+  }
 </style>
-
