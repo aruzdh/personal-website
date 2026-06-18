@@ -7,10 +7,11 @@ const projectsCollection = defineCollection({
     subtitle: z.string(),
     description: z.string(),
     keywords: z.array(z.string()),
-    status: z.enum(['active', 'completed', 'on-hold']),
+    status: z.enum(['active', 'completed', 'frozen']),
     github: z.string().url(),
     demo: z.string().url().optional().or(z.literal('')),
-    image: image(),
+    image: image().optional(),
+    scope: z.string().default("general"),
   }),
 });
 

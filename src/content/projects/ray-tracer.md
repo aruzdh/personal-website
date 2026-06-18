@@ -7,6 +7,7 @@ status: "active"
 github: "https://github.com/aruzdh/ray-tracer"
 demo: ""
 image: "../../assets/projects/ray-tracer.webp"
+scope: "graphics"
 ---
 
 Optional: You can write a detailed technical breakdown here
