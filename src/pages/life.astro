@@ -1,13 +1,205 @@
 ---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import MainLayout from '../layouts/MainLayout.astro';
-import Error from '../components/Error.astro'
+import Divider from '../components/Divider.astro';
+
+const articles = await getCollection('blog');
+const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+import momentsFeed from '../data/moments.json';
+
+const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/life/*.{jpeg,jpg,png,gif,webp}');
 ---
 
-<MainLayout title="POV: ACCESS_DENIED" subtitle="This sector is currently undergoing maintenance.">
-  <Error errorTitle="FATAL_ERROR: RESOURCE_NOT_FOUND" progress={40}>
-    <p>
-      The 'LIFE' module is currently being refactored. The database entries for day-to-day photos 
-      are offline for consistency checks ✖𐃷✖ .
-    </p>
-  </Error>
+<MainLayout title="CS Articles and my day-to-day life :]" subtitle="i'm just sharing moments and writing about what made me love CS">
+  <section class="life-system">
+    
+    <div class="log-directory">
+      <p class="shell-prompt">{">>"} cat ~/life/articles.txt </p>
+      
+      <div class="articles-table">
+        <div class="table-header table-row">
+          <span>DATE</span>
+          <span>TAG</span>
+          <span>TITLE</span>
+        </div>
+
+        <div class="table-body">
+          {sortedArticles.length === 0 ? (
+            <p class="empty-fallback dim-text">No articles found in directory. Standby for deployment.</p>
+          ) : (
+            sortedArticles.map((article) => (
+              <a href={`/blog/${article.slug}`} class="table-row article-link">
+                <span class="dim-text">{article.data.date.toISOString().split('T')[0]}</span>
+                <span class="text-blue">[{article.data.tag.toLowerCase()}]</span>
+                <span class="font-bold">{article.data.title}</span>
+              </a>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+
+    <Divider />
+
+    <div class="log-stream">
+      <p class="shell-prompt">{">>"} cat ~/life/stdout</p>
+
+      <div class="stream-container">
+        {momentsFeed.map((moment) => (
+          <article class="stream-entry">
+            <header class="entry-header">
+              <span class="text-orange">[{moment.date}]</span>
+              <span class="dim-text"># {moment.tag}</span>
+            </header>
+
+            <p class="entry-text">{moment.text}</p>
+
+            {moment.image && feedImages[moment.image] && (
+              <figure class="display-box">
+                <Image src={feedImages[moment.image]()} alt={moment.alt} />
+                <!-- <figcaption>{moment.alt.toUpperCase()}</figcaption> -->
+              </figure>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+
+  </section>
 </MainLayout>
+
+<style>
+  .life-system {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .shell-prompt {
+    color: var(--fg-light);
+    font-weight: bold;
+    margin-bottom: 1.25rem;
+  }
+
+  .dim-text { color: var(--fg-light); }
+  .text-blue { color: var(--blue, #00ffff); }
+  .text-orange { color: var(--orange, #ff5f00); }
+  .font-bold { font-weight: bold; }
+
+  .articles-table {
+    margin-bottom: 2rem;
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 110px 110px 1fr;
+    gap: 1rem;
+    padding: 0.4rem 0.5rem;
+    align-items: center;
+  }
+
+  .table-header {
+    color: var(--fg-light);
+    border-bottom: 1px dashed var(--bg-alt);
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+  }
+
+  .article-link {
+    text-decoration: none;
+    color: inherit;
+    display: grid;
+  }
+
+  .article-link:hover {
+    background-color: var(--fg, #ffffff);
+    color: var(--bg, #000000);
+  }
+
+  .article-link:hover .dim-text,
+  .article-link:hover .text-blue {
+    color: inherit;
+  }
+
+  .empty-fallback {
+    padding: 0.5rem;
+    font-style: italic;
+  }
+
+  .stream-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+    gap: 2rem;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .stream-entry {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 0.3rem;
+    transition: all 230ms ease;
+  }
+
+  .entry-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  .entry-text {
+    color: var(--fg);
+    margin-bottom: auto; 
+    font-size: 0.85rem;
+  }
+
+  .display-box {
+    /* background: var(--bg-alt); */
+    padding: 0.75rem;
+    width: 100%; 
+    text-align: center;
+    margin-top: 1rem;
+    border-radius: 0.3rem;
+  }
+
+  .display-box img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    height: auto;
+    display: block;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+  }
+
+  figcaption {
+    font-size: 0.7rem;
+    color: var(--fg-light);
+  }
+
+  @media (max-width: 768px) {
+    .table-header {
+      display: none;
+    }
+    
+    .table-row {
+      grid-template-columns: 90px 1fr;
+    }
+
+    .table-row :nth-child(2) {
+      display: none;
+    }
+
+    .stream-container {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

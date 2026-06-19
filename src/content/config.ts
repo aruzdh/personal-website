@@ -15,17 +15,17 @@ const projectsCollection = defineCollection({
   }),
 });
 
-const lifeCollection = defineCollection({
+const blogCollection = defineCollection({
   type: 'content',
-  schema: ({ image }) => z.object({
+  schema: z.object({
     title: z.string(),
+    subtitle: z.string(),
     date: z.date(),
-    alt: z.string(),
-    image: image(),
+    tag: z.string().default('general'),
   }),
 });
 
 export const collections = {
   'projects': projectsCollection,
-  'life': lifeCollection,
+  'blog': blogCollection,
 };

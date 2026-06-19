@@ -1,0 +1,72 @@
+[
+  {
+    "date": "2026-06-18",
+    "tag": "tv-show",
+    "text": "I really love Mr. Robot. Amazon Prime removed it from the platform, so my last option was to build my own server and stream it from there.",
+    "image": "/src/assets/life/mrrobot.webp",
+    "alt": "Mr Robot frame"
+  },
+  {
+    "date": "2026-06-10",
+    "tag": "nature",
+    "text": "I was watering the carrots, and I found this little guy. I tried to adopt him. :D",
+    "image": "/src/assets/life/pet.webp",
+    "alt": "A strange garden bug"
+  },
+  {
+    "date": "2026-05-24",
+    "tag": "gardening",
+    "text": "Harvested some fresh carrots from the garden today with my dad.",
+    "image": "/src/assets/life/carrots.webp",
+    "alt": "Freshly harvested carrots from the garden"
+  },
+  {
+    "date": "2026-05-11",
+    "tag": "study",
+    "text": "I was walking to my linear algebra class, and, even if it sounds weird, I'm a real fan of how the sunlight looks.",
+    "image": "/src/assets/life/FI.webp",
+    "alt": "Facultad de Ingenieria campus grounds"
+  },
+  {
+    "date": "2026-04-29",
+    "tag": "cs",
+    "text": "Reading about Vim.",
+    "image": "/src/assets/life/nvim.webp",
+    "alt": "Vim article"
+  },
+  {
+    "date": "2026-04-12",
+    "tag": "study",
+    "text": "I can't express how much I love this photo. Without a doubt, this season was the second best of my entire life.",
+    "image": "/src/assets/life/setup.webp",
+    "alt": "My workspace at home."
+  },
+  {
+    "date": "2026-03-19",
+    "tag": "cs",
+    "text": "Using another keyboard feels like cheating; my Corne is gonna accompany me until death.",
+    "image": "/src/assets/life/keyboard.webp",
+    "alt": "Close-up profile shot of a mechanical keyboard layout"
+  },
+  {
+    "date": "2026-02-28",
+    "tag": "study",
+    "text": "On my way to campus early.",
+    "image": "/src/assets/life/onmyway.webp",
+    "alt": "Perspective view from a morning commute window"
+  },
+  {
+    "date": "2026-01-15",
+    "tag": "gaming",
+    "text": "Minecraft is perfect.",
+    "image": "/src/assets/life/minecraft.webp",
+    "alt": "In-game screenshot of a processing structure"
+  },
+  {
+    "date": "2025-11-05",
+    "tag": "nature",
+    "text": "Touching grass.",
+    "image": "/src/assets/life/view.webp",
+    "alt": "Scenic view captured from a desk window frame"
+  }
+]
