@@ -17,8 +17,8 @@ const isAboutPage = pathname === '/about' || pathname.startsWith('/about/');
         <div class="slider"></div>
       </div>
     </button>
-    <span class="status-item">USER: ARU</span>
-    <span class="status-item">LOC: CDMX</span>
+    <span class="status-item user">USER: ARU</span>
+    <span class="status-item location">LOC: CDMX</span>
     <span class="status-item date-display">{today}</span>
     <span class="status-item blink">● LIVE</span>
   </div>
@@ -109,6 +109,12 @@ const isAboutPage = pathname === '/about' || pathname.startsWith('/about/');
     padding: 0.3rem 1rem;
     font-size: 0.7rem;
     font-weight: bold;
+  }
+
+  @media (max-width: 615px) {
+    .status-bar .user, .location, .date-display  {
+      display: none;
+    }
   }
 
   .blink {
