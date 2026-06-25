@@ -18,7 +18,7 @@ const getFileMeta = (status: string, keywords: string[], scope: string) => {
 
 <MainLayout title="These are my current side projects :)" subtitle="The future ones will be about Formal Verification (using Rocq; i love Rocq)">
   <section class="terminal-filesystem">
-    <p class="shell-prompt">total {allProjects.length} side-projects</p>
+    <p class="shell-prompt">total {allProjects.length} projects</p>
 
     <div class="fs-header fs-row">
       <span class="col-perm">PERMISSIONS</span>
@@ -75,7 +75,6 @@ const getFileMeta = (status: string, keywords: string[], scope: string) => {
 
 <style>
   .terminal-filesystem {
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
     line-height: 1.5;
   }
 
@@ -141,7 +140,7 @@ const getFileMeta = (status: string, keywords: string[], scope: string) => {
 
   .cat-command {
     color: var(--fg-light);
-    font-weight: bold;
+    font-style: italic;
     margin-bottom: 0.75rem;
   }
 
@@ -158,9 +157,7 @@ const getFileMeta = (status: string, keywords: string[], scope: string) => {
   }
 
   .meta-label {
-    color: var(--fg-light);
-    display: inline-block;
-    width: 110px;
+    color: var(--yellow)
   }
 
   .readme-links {
