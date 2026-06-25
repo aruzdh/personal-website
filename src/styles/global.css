@@ -6,7 +6,9 @@
 }
 
 :root {
-  font-family: "JetBrains Mono", monospace;
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 400;
 }
 
 :root, [data-theme='light'] {
@@ -54,11 +56,16 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
 }
 
 p {
   margin-bottom: 1.2rem;
-  line-height: 1.6;
+}
+
+strong {
+  font-weight: 600;
 }
 
 h1, h2, h3 {
