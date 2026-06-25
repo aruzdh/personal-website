@@ -24,27 +24,25 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
       <section class="bio">
         <p>
-          Well, my (real) name is <strong>Carlos</strong>,
-          but you can call me <strong>Aru</strong> (ngl, I really like it!).
+          Well, my (real) name is <strong data-bio="real-name">Carlos</strong>, but you can call 
+          me <strong data-bio="nickname">Aru</strong> (ngl, I really like it!).
         </p>
 
         <p>
-          I'm a 22-year-old <strong>Computer Science</strong> student, and
-          that's the reason why I'm really into everything about
-          low-level programming; I fell in love with how things work under the
-          hood.
+          I'm a 22-year-old <strong data-bio="cs">Computer Science</strong> student, and that's the 
+          reason why I'm really into everything about low-level programming; I fell in love with 
+          how things work under thehood.
         </p>
 
         <p>
-          My favorite language is <strong data-lang="Rust">Rust</strong>, and as
-          you can imagine, that's the reason for that cute, tiny, eye-catching
-          crab moving side to side at the top of the page. Although, I usually
-          program in:
+          My favorite language is <strong data-lang="Rust">Rust</strong>, and as you can imagine, 
+          that's the reason for that cute, tiny, eye-catching crab moving side to side at the top 
+          of the page. Although, I usually program in:
         </p>
 
         <div class="lang-row">
           {currentLanguages.map((lang) => (
-          <span class="lang-text" data-lang={lang}>{lang}</span>
+          <strong class="lang-text" data-lang={lang}>{lang}</strong>
           ))}
         </div>
 
@@ -52,7 +50,7 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
         <div class="lang-row">
           {futureLanguages.map((lang) => (
-          <span class="lang-text" data-lang={lang}>{lang}</span>
+          <strong class="lang-text" data-lang={lang}>{lang}</strong>
           ))}
         </div>
       </section>
@@ -61,18 +59,18 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
       <section class="activity-log">
         <p>
-          <strong>In November 2024</strong> I decided to create an
-          X/Twitter account with the main purpose of sharing my CS life.
-          I quickly found a friendly community called
-          <strong>"Study Buddy"</strong> where lots of people
-          share their personal <strong>notes</strong>,
-          <strong>study-session POV</strong>,
-          <strong>setups</strong>, and several other
-          <strong>aesthetic things</strong>.
+          <strong data-log="date">In November 2024</strong> I decided to create an X/Twitter 
+          account with the main purpose of sharing my CS life. I quickly found a friendly community 
+          called <strong data-log="study-bud">"Study Buddy"</strong> where lots of people share 
+          their personal <strong data-log="notes">notes</strong>, 
+          <strong data-log="POV">study-session POV</strong>, 
+          <strong data-log="setups">setups</strong>, and several other 
+          <strong data-log="aesthetic-things">aesthetic things</strong>.
         </p>
 
         <p>
-          For instance, this is my usual view when <strong>I'm studying at home</strong>. It looks nice, doesn't it?
+          For instance, this is my usual view when 
+          <strong data-log="home">I'm studying at home</strong>. It looks nice, doesn't it?
         </p>
 
         <figure class="display-box">
@@ -85,13 +83,11 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
       <section class="activity-log">
         <p class="logical-problems">
-          One of the things I enjoy the most is solving logic problems. I'm
-          sure you're familiar with platforms like{" "}
-          <strong data-site="LeetCode">LeetCode</strong> (my favorite btw ☝🏽🤓),{" "}
-          <strong>HackerRank</strong>,
-          <strong>CodeSignal</strong>,
-          <strong>CodeForces</strong>, and so on. I spend
-          around 2 hours a day solving these kinds of problems.
+          One of the things I enjoy the most is solving logic problems. I'm sure you're familiar 
+          with platforms like{" "} <strong data-site="LeetCode">LeetCode</strong> (my favorite btw 
+        ☝🏽🤓),{" "} <strong data-site="HackerRank">HackerRank</strong>, 
+          <strong data-site="CodeForces">CodeForces</strong>, and so on. I spend around 2 hours a 
+          day solving these kinds of problems.
         </p>
 
         <p>If you want to check out my profile, here's my LeetCode:</p>
@@ -110,9 +106,9 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
       <section class="activity-log">
         <p>
-          Yup, I've talked about my current studies, my favorite languages,
-          and my obsession with LeetCode, but what do I do when I'm not
-          programming? Do I play LoL like an average CS or SWE?
+          Yup, I've talked about my current studies, my favorite languages, and my obsession with 
+          LeetCode, but what do I do when I'm not programming? Do I play LoL like an average CS or 
+          SWE?
         </p>
       </section>
 
@@ -120,24 +116,21 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
       <section class="activity-log">
         <p>
-          I love <strong>gardening</strong>. For a
-          few months now, I've been growing various veggies in my garden. My
-          dad grew up in a rural area, so he knows a lot about this wonderful
-          world.
+          I love <strong data-log="gardening">gardening</strong>. For a few months now, I've been growing various 
+          veggies in my garden. My dad grew up in a rural area, so he knows a lot about this 
+          wonderful world.
         </p>
 
         <p>
-          Actually ☝🏽🤓, that's the reason I developed a garden organizer,
-          which you can (actually, it's gone, but you can take a look 
-          at my other projects lol) view in the{" "}
+          Actually ☝🏽🤓, that's the reason I developed a garden organizer, which you can (actually, 
+          it's gone, but you can take a look at my other projects lol) view in the{" "}
           <a href="/projects">{SECTIONS.PROJECTS}</a> tab.
         </p>
 
         <p class="gardening-text">
-          At the moment, I'm growing coriander, tomato, round zucchini, corn, 
-          carrot, and a couple more veggies.
-          In the <a href="/life">{SECTIONS.LIFE}</a> tab, you'll find some
-          photos I've taken so far.
+          At the moment, I'm growing coriander, tomato, round zucchini, corn, carrot, and a couple 
+          more veggies. In the <a href="/life">{SECTIONS.LIFE}</a> tab, you'll find some photos 
+          I've taken so far.
         </p>
 
         <figure class="display-box garden-box">
@@ -149,38 +142,43 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 </MainLayout>
 
 <style>
-  strong {
-    font-weight: bold;
-    color: var(--fg);
-  }
-
-  strong[data-lang="Rust"], span[data-lang="OCaml"] {
+  strong[data-lang="Rust"], strong[data-lang="OCaml"], strong[data-log="home"] {
     color: var(--orange);
   }
 
-  span[data-lang="C++"], span[data-lang="Python"], span[data-lang="C"] {
+  strong[data-lang="C++"], strong[data-lang="Python"], strong[data-lang="C"],
+  strong[data-bio="real-name"], strong[data-site="CodeForces"] {
     color: var(--blue);
   }
 
-  span[data-lang="Haskell"] {
+  strong[data-lang="Haskell"] {
     color: var(--purple0)
   }
 
-  span[data-lang="Java"] {
+  strong[data-log="date"], strong[data-log="aesthetic-things"] {
+    color: var(--purple1)
+  }
+
+  strong[data-lang="Java"], strong[data-log=setups] {
     color: var(--red)
   }
 
-  span[data-lang="TypeScript"], span[data-lang="Go"] {
+  strong[data-lang="TypeScript"], strong[data-lang="Go"], strong[data-log="study-bud"] {
     color: var(--cyan)
   }
 
-  span[data-lang="Zig"] {
+  strong[data-lang="Zig"], strong[data-bio="cs"], strong[data-log="notes"], 
+  strong[data-site="LeetCode"] {
     color: var(--yellow)
   }
 
+  strong[data-bio="nickname"], strong[data-log="POV"], strong[data-site="HackerRank"],
+  strong[data-log="gardening"] {
+    color: var(--green);
+  }
+
   .lang-row {
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     margin: 1rem 0 1.5rem;
     display: flex;
     flex-wrap: wrap;
@@ -191,7 +189,6 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 
   .lang-text {
     color: var(--fg-light);
-    font-weight: bold;
     display: inline-flex;
     align-items: center;
   }
