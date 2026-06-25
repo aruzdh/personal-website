@@ -1,25 +1,33 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import { EMAIL, SOCIAL_MEDIA } from '../consts'; 
+import { SOCIAL_MEDIA } from '../consts'; 
 ---
 
 <MainLayout title="Welcome to my website, I'm Aru!" subtitle="a 1.65-ish nerd and computer scientist">
   <section class="intro">
-    <p>
-      Here you can see my current active projects, find my social media if you're interested in my hobbies and study sessions, and view a bunch of photos from my day-to-day life. I hope you enjoy them. :p
-    </p>
+  <p>
+    Waddup! Here you can see my <strong data-about="side-projects">side projects</strong>, find 
+    my <strong data-about="social-media">social media</strong> if you're interested in my hobbies 
+    and study sessions, view a bunch of photos from my
+    <strong data-about="day-to-day">day-to-day life</strong>, and (in the future) read about 
+    some interesting <strong data-about="CS-topics">CS topics</strong>.
+  </p>
 
-    <p>
-      If you're just interested in work-related matters, here are some useful and quick links:
-    </p>
+  <p>
+    My plan is to write about <strong data-about="ML">Mathematical Logic</strong>,
+    <strong data-about="FV">Formal Verification</strong>, the theory behind some 
+    <strong data-about="CSES">CSES</strong>, <strong data-about="LeetCode">LeetCode</strong>, 
+    and <strong data-about="Codeforces">Codeforces</strong> problems, and maybe more. I hope you 
+    enjoy them! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧
+  </p>
+
+  <p>
+    If you're interested in me or my projects, feel free to DM me here!
+  </p>
 
     <div class="quick-links">
-      <a href={SOCIAL_MEDIA.GITHUB} rel="noreferrer" target="_blank">GitHub</a>
-      <a href={SOCIAL_MEDIA.LINKEDIN} rel="noreferrer" target="_blank">LinkedIn</a>
+      <a href={SOCIAL_MEDIA.X} rel="noreferrer" target="_blank">X/Twitter</a>
     </div>
-
-    <p>This is my email:</p>
-    <a href={`mailto:${EMAIL}`} class="email-link">{EMAIL}</a>
   </section>
 </MainLayout>
 
@@ -39,10 +47,28 @@ import { EMAIL, SOCIAL_MEDIA } from '../consts';
     margin: 1.5rem 0;
   }
 
-  .email-link {
-    display: flex;
-    justify-content: center;
-    color: var(--blue0);
-    text-decoration: underline;
+  strong[data-about="side-projects"] {
+    color: var(--purple0)
   }
+
+  strong[data-about="social-media"], strong[data-about="Codeforces"] {
+    color: var(--blue)
+  }
+
+  strong[data-about="day-to-day"], strong[data-about="CSES"] {
+    color: var(--green)
+  }
+
+  strong[data-about="CS-topics"], strong[data-about="LeetCode"] {
+    color: var(--yellow)
+  }
+
+  strong[data-about="ML"] {
+    color: var(--purple1)
+  }
+
+  strong[data-about="FV"] {
+    color: var(--orange)
+  }
+   
 </style>
