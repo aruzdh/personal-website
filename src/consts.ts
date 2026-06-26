@@ -5,7 +5,7 @@ export const SECTIONS = {
   HOME: "Home",
   PROJECTS: "Projects",
   ABOUT: "About",
-  LIFE: "Life",
+  BlOG: "Blog",
 } as const;
 
 export const TABS = Object.values(SECTIONS);
