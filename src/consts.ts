@@ -14,7 +14,7 @@ export const SOCIAL_MEDIA = {
   GITHUB: `https://github.com/${USERNAME}`,
   X: `https://x.com/${USERNAME}`,
   LEETCODE: `https://leetcode.com/u/${USERNAME}/`,
-  LINKEDIN: `https://www.linkedin.com/in/${USERNAME}/`,
+  // LINKEDIN: `https://www.linkedin.com/in/${USERNAME}/`,
 };
 
 export const TECH_STACK = {
