@@ -8,6 +8,7 @@ import { SECTIONS, TECH_STACK, SOCIAL_MEDIA } from '../consts';
 import leetcodeImage from '../assets/about/leetcode.webp';
 import studysession from '../assets/about/studysession.webp';
 import gardenharvest from '../assets/about/radish.webp';
+import rocqcode from '../assets/about/rocq.webp';
 
 const currentLanguages = Object.values(TECH_STACK.CURRENT).filter(lang => lang !== "Rust");
 const futureLanguages = Object.values(TECH_STACK.FUTURE);
@@ -16,7 +17,7 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 <MainLayout title="But, Who Am I?" subtitle="what do I do in my day-to-day? why is there a crab at the top?">
   <section class="about-content">
       <div class="social-media">
-        <p>These are my 'social media':</p>
+        <p>These are my "social media":</p>
         <SocialMedia />
       </div>
 
@@ -54,7 +55,68 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
           ))}
         </div>
       </section>
-    
+
+      <Divider />
+
+      <section>
+        <p>
+          This year (2026), I discovered two CS fields that made me love this area even more: 
+          <a 
+            href="https://en.wikipedia.org/wiki/Analysis_of_algorithms"
+            target="_blank"
+            rel="noreferrer"
+          >Analysis of Algorithms</a>,
+          and <a 
+            href="https://en.wikipedia.org/wiki/Formal_verification"
+            target="_blank"
+            rel="noreferrer"
+          >Formal Verification</a>.
+        </p>
+        <p>
+          During the 2026-1 semester (2025), I took <strong data-exp="AA">Analysis of Algorithms</strong>
+          and fell in love immediately after hearing about some research experiences from the course's 
+          instructor. He talked about weird theorems to prove some kind of relationship between 
+          data, concluding, "Hmm... one cannot do it faster than O(log n) ☝️🤓," or the 
+          relationship between 
+          <a 
+            href="https://en.wikipedia.org/wiki/Matroid"
+            target="_blank"
+            rel="noreferrer"
+          >Matroids</a> and 
+          <a 
+            href="https://en.wikipedia.org/wiki/Greedy_algorithm"
+            target="_blank"
+            rel="noreferrer"
+          >Greedy algorithms</a>.
+          The 2026-2 semester (this year) blew my mind beyond my expectations. I took 
+          <strong data-exp="AAII">Analysis of Algorithms II</strong>, and that was awesome! 
+          Actually, you can read about my experience
+          <a 
+            href="https://aruzdh.dev/blog/four-months-studying-computational-geometry/"
+            target="_blank"
+            rel="noreferrer"
+          >here!</a>
+        </p>
+
+        <p>
+          Yet, the field that made me say "can't wait to go home and carry out that proof!" was 
+          <strong data-exp="FV">Formal Verification</strong>. At the same time, I was taking a 
+          course about
+          <a
+            href="https://en.wikipedia.org/wiki/Mathematical_logic"
+            target="_blank"
+            rel="noreferrer"
+          >Mathematical Logic</a>,
+          so they complemented each other perfectly. That said, my main interest is in 
+          <a href="https://en.wikipedia.org/wiki/Rocq">Rocq</a>—I'll write about it soon!
+        </p>
+
+        <figure class="display-box rocq-box">
+          <Image src={rocqcode} alt="Rocq Code" /> 
+          <figcaption>My Rocq workspace.</figcaption>
+        </figure>
+      </section>
+
       <Divider />
 
       <section class="activity-log">
@@ -142,7 +204,8 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
 </MainLayout>
 
 <style>
-  strong[data-lang="Rust"], strong[data-lang="OCaml"], strong[data-log="home"] {
+  strong[data-lang="Rust"], strong[data-lang="OCaml"], strong[data-log="home"], 
+  strong[data-exp="AA"] {
     color: var(--orange);
   }
 
@@ -159,7 +222,7 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
     color: var(--purple1)
   }
 
-  strong[data-lang="Java"], strong[data-log=setups] {
+  strong[data-lang="Java"], strong[data-log=setups], strong[data-exp="FV"] {
     color: var(--red)
   }
 
@@ -173,7 +236,7 @@ const futureLanguages = Object.values(TECH_STACK.FUTURE);
   }
 
   strong[data-bio="nickname"], strong[data-log="POV"], strong[data-site="HackerRank"],
-  strong[data-log="gardening"] {
+  strong[data-log="gardening"], strong[data-exp="AAII"] {
     color: var(--green);
   }
 
