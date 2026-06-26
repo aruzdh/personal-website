@@ -3,9 +3,12 @@ import sitemap from '@astrojs/sitemap';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
   site: 'https://aruzdh.dev',
   integrations: [sitemap()],
+
   fonts: [
     {
       provider: fontProviders.google(),
@@ -15,8 +18,11 @@ export default defineConfig({
       styles: ['normal', 'italic'],
     },
   ],
+
   markdown: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
   },
+
+  adapter: cloudflare()
 });
