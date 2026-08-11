@@ -4,20 +4,18 @@ import { Image } from 'astro:assets';
 import MainLayout from '../layouts/MainLayout.astro';
 import Divider from '../components/Divider.astro';
 
-const articles = await getCollection('blog');
-const sortedArticles = articles.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 import momentsFeed from '../data/moments.json';
 
 const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/life/*.{jpeg,jpg,png,gif,webp}');
 ---
 
-<MainLayout title="CS Articles and my day-to-day life :]" subtitle="i'm just sharing moments and writing about what made me love CS">
+<MainLayout title="CS Posts and my day-to-day life :]" subtitle="i'm just sharing moments and writing about what made me love CS">
   <section class="life-system">
     
     <div class="log-directory">
-      <p class="shell-prompt">{">>"} cat ~/life/articles.txt </p>
-      
       <div class="articles-table">
         <div class="table-header table-row">
           <span>DATE</span>
@@ -26,14 +24,14 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
         </div>
 
         <div class="table-body">
-          {sortedArticles.length === 0 ? (
-            <p class="empty-fallback dim-text">No articles found in directory. Standby for deployment.</p>
+          {posts.length === 0 ? (
+            <p class="empty-fallback dim-text">No posts found in directory. Standby for deployment.</p>
           ) : (
-            sortedArticles.map((article) => (
-              <a href={`/blog/${article.slug}`} class="table-row article-link">
-                <span class="dim-text">{article.data.date.toISOString().split('T')[0]}</span>
-                <span class="text-blue">[{article.data.tag.toLowerCase()}]</span>
-                <span class="font-bold">{article.data.title}</span>
+            posts.map((post) => (
+              <a href={`/blog/${post.id}`} class="table-row article-link">
+                <span class="dim-text">{post.data.date.toISOString().split('T')[0]}</span>
+                <span class="text-blue">[{post.data.tag.toLowerCase()}]</span>
+                <span class="font-bold">{post.data.title}</span>
               </a>
             ))
           )}
@@ -44,11 +42,9 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
     <Divider />
 
     <div class="log-stream">
-      <p class="shell-prompt">{">>"} cat ~/life/stdout</p>
-
       <div class="stream-container">
         {momentsFeed.map((moment) => (
-          <article class="stream-entry">
+          <post class="stream-entry">
             <header class="entry-header">
               <span class="text-orange">[{moment.date}]</span>
               <span class="dim-text"># {moment.tag}</span>
@@ -62,7 +58,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
                 <!-- <figcaption>{moment.alt.toUpperCase()}</figcaption> -->
               </figure>
             )}
-          </article>
+          </post>
         ))}
       </div>
     </div>
