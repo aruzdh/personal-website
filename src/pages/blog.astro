@@ -7,16 +7,16 @@ import Divider from '../components/Divider.astro';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-import momentsFeed from '../data/moments.json';
+const momentsFeed = (await getCollection('feed')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/life/*.{jpeg,jpg,png,gif,webp}');
 ---
 
 <MainLayout title="CS Posts and my day-to-day life :]" subtitle="i'm just sharing moments and writing about what made me love CS">
-  <section class="life-system">
-    
-    <div class="log-directory">
-      <div class="articles-table">
+  <section class="posts">
+    <div class="post-container">
+      <div class="posts-table">
         <div class="table-header table-row">
           <span>DATE</span>
           <span>TAG</span>
@@ -28,7 +28,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
             <p class="empty-fallback dim-text">No posts found in directory. Standby for deployment.</p>
           ) : (
             posts.map((post) => (
-              <a href={`/blog/${post.id}`} class="table-row article-link">
+              <a href={`/blog/${post.id}`} class="table-row post-link">
                 <span class="dim-text">{post.data.date.toISOString().split('T')[0]}</span>
                 <span class="text-blue">[{post.data.tag.toLowerCase()}]</span>
                 <span class="font-bold">{post.data.title}</span>
@@ -41,25 +41,28 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
 
     <Divider />
 
-    <div class="log-stream">
-      <div class="stream-container">
-        {momentsFeed.map((moment) => (
-          <post class="stream-entry">
-            <header class="entry-header">
-              <span class="text-orange">[{moment.date}]</span>
-              <span class="dim-text"># {moment.tag}</span>
-            </header>
+    <div class="feed">
+      <div class="feed-container">
+        {momentsFeed === 0 ? (
+          <p class="empty-fallback dim-text">No momenst found in directory. Standby for deployment.</p>
+        ): (
+          momentsFeed.map((moment) => (
+            <post class="stream-entry">
+              <header class="entry-header">
+                <span class="text-orange">[{moment.data.date.toISOString().split('T')[0]}]</span>
+                <span class="dim-text"># {moment.data.tag}</span>
+              </header>
 
-            <p class="entry-text">{moment.text}</p>
+              <p class="entry-text">{moment.data.description}</p>
 
-            {moment.image && feedImages[moment.image] && (
-              <figure class="display-box">
-                <Image src={feedImages[moment.image]()} alt={moment.alt} />
-                <!-- <figcaption>{moment.alt.toUpperCase()}</figcaption> -->
-              </figure>
-            )}
-          </post>
-        ))}
+              {moment.data.image && (
+                <figure class="display-box">
+                  <Image src={moment.data.image} alt={moment.data.alt} />
+                </figure>
+              )}
+            </post>
+          ))
+        )}
       </div>
     </div>
 
@@ -67,15 +70,9 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
 </MainLayout>
 
 <style>
-  .life-system {
+  .posts {
     font-size: 0.85rem;
     line-height: 1.5;
-  }
-
-  .shell-prompt {
-    color: var(--fg-light);
-    font-style: italic;
-    margin-bottom: 1.25rem;
   }
 
   .dim-text { color: var(--fg-light); }
@@ -83,7 +80,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
   .text-orange { color: var(--orange, #ff5f00); }
   .font-bold { font-weight: bold; }
 
-  .articles-table {
+  .posts-table {
     margin-bottom: 2rem;
   }
 
@@ -103,19 +100,19 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
     padding-bottom: 0.5rem;
   }
 
-  .article-link {
+  .post-link {
     text-decoration: none;
     color: inherit;
     display: grid;
   }
 
-  .article-link:hover {
+  .post-link:hover {
     background-color: var(--fg, #ffffff);
     color: var(--bg, #000000);
   }
 
-  .article-link:hover .dim-text,
-  .article-link:hover .text-blue {
+  .post-link:hover .dim-text,
+  .post-link:hover .text-blue {
     color: inherit;
   }
 
@@ -124,7 +121,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
     font-style: italic;
   }
 
-  .stream-container {
+  .feed-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
     gap: 2rem;
@@ -143,7 +140,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
 
   .entry-header {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
     margin-bottom: 0.5rem;
     font-weight: bold;
   }
@@ -155,7 +152,6 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
   }
 
   .display-box {
-    /* background: var(--bg-alt); */
     padding: 0.75rem;
     width: 100%; 
     text-align: center;
@@ -192,7 +188,7 @@ const feedImages = import.meta.glob<{ default: ImageMetadata }>('/src/assets/lif
       display: none;
     }
 
-    .stream-container {
+    .feed-container {
       grid-template-columns: 1fr;
       gap: 2.5rem;
     }

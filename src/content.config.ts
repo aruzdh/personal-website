@@ -27,4 +27,15 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { projects, blog };
+const feed = defineCollection({
+  loader: glob({ base: './src/content/feed', pattern: '**/*.{md,mdx}' }),
+  schema: ({ image }) => z.object({
+    description: z.string(),
+    alt: z.string(),
+    image: image().optional(),
+    date: z.date(),
+    tag: z.string().default('general'),
+  }),
+});
+
+export const collections = { projects, blog, feed };
