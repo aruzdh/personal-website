@@ -8,9 +8,9 @@ export default defineConfig({
   integrations: [sitemap()],
   fonts: [
     {
-      provider: fontProviders.google(),
-      name: 'Plus Jakarta Sans',
-      cssVariable: '--font-plus-jakarta-sans',
+      provider: fontProviders.fontsource(),
+      name: "Plus Jakarta Sans",
+      cssVariable: "--font-plus-jakarta-sans",
       weights: ['200..800'],
       styles: ['normal', 'italic'],
     },

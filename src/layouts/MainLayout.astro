@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Divider from '../components/Divider.astro';
@@ -30,6 +31,7 @@ const { title, subtitle } = Astro.props;
       integrity="sha384-n8MVd81YOS0HqlVRI66T57OO9vZwixuN8Ch8WwVToCwMr94CX76HxtY7Fyp59kr1" 
       crossorigin="anonymous"
     />
+    <Font cssVariable="--font-plus-jakarta-sans" />
   </head>
 
   <body>
