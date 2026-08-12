@@ -1,0 +1,115 @@
+---
+title: "Dynamic Minimum Bichromatic Separating Circle (DMBSC)"
+subtitle: "an algorithm that could be used in wars :o"
+date: 2026-08-10
+tag: "computational-geometry"
+---
+import BlogPostImage from '../../components/BlogPostImage.astro';
+import CenteredContainer from '../../components/CenteredContainer.astro';
+import elephantseal from '../../assets/blog/DMBSC/Northern-elephant-seal.webp';
+import dmbsc from '../../assets/blog/DMBSC/DMBSC.webp';
+
+## Why was I reading about computational geometry?
+
+This is part 2 of 3 of my experience studying computational geometry; you can read
+the first part <a href="https://aruzdh.dev/blog/four-months-studying-computational-geometry/" target="_blank" rel="noreferrer">here!</a>
+
+One bright day, I'd just finished a _Semántica y Verificación_ class and was walking
+to the subway, praying to find a free seat to fall asleep on as though I were a
+massive <a href="https://www.britannica.com/animal/elephant-seal" target="_blank" rel="noreferrer">elephant seal</a>.
+
+<CenteredContainer>
+  <BlogPostImage src={elephantseal} alt="An Northern elephant seal."/>
+</CenteredContainer>
+
+Suddenly, I got +20 notis from Google Classroom; I had to choose a paper to
+present in class.
+
+Thanks to my 58-hours-a-day TikTok doomscrolling skills, I looked over all the
+papers like a guy who wants to gain knowledge by reading without actually reading.
+My eyes were moving across dozens of sheets, trying to find out which one was hard
+enough to feature a marvelous algo, but not too complex to make a fool of myself
+in front of thousands of researchers! Nah, we were only 6 students and...
+<a href="https://matematicos.matem.unam.mx/matematicos-r-z/matematicos-u/jorge-urrutia" target="_blank" rel="noreferrer">Jorge Urrutia</a>!?
+and
+<a href="https://www.matem.unam.mx/~tita/" target="_blank" rel="noreferrer">Adriana Ramírez</a>!?
+A tad of pressure, ngl.
+
+My heart stopped when I read the word "_dynamic_". _Why do we need a _dynamic_
+algo? Most importantly, what's a _dynamic_ algo? Am I choosing something that's
+totally unknown to me?_ **YES**.
+
+They gave us around 3 weeks to prepare everything. I decided to use my lovely
+<a href="https://typst.app/docs/" target="_blank" rel="noreferrer">Typst</a>
+and a package called
+<a href="https://typst.app/universe/package/polylux" target="_blank" rel="noreferrer">Polylux</a>
+to create my slides (at the bottom of the page, you can find my work :]).
+
+## The paper's problem
+
+Lemme explain to you in brief terms what the paper is about.
+
+Imagine a bunch of points on a 2D plane, but we can distinguish them by color—some
+of them are **red** while others are **blue**. We want to use a circle to _separate_
+them according to certain conditions: we want to find the circle with **the smallest**
+radius that **encloses all the red points**, and that **contains the smallest
+number of blue points**.
+
+<CenteredContainer>
+  <BlogPostImage src={dmbsc} alt="An example of the DMBSC problem."/>
+</CenteredContainer>
+
+Maybe you're saying, "Well... Where's the _dynamic_ part?" Assume we're in the
+middle of a war called "**The War of the Biggest LARPers**" in the year 3872.
+Red points are your enemies! (the ones who only use Python imports and show off
+their projects on X). Blue points are your friends! (the ones who assume what
+they want to prove). You've calculated the perfect circle that destroys every
+Python buddy... but suddenly one of your mates says, "Hmm... Fortnite released a
+new season. I gotta go. Good luck on the battlefield!"
+
+Of course, you **could** execute the same algo (the static one) again. Now! You're
+ready to vanquish every soul on earth... until one pal says, "P = NP! Fuck this
+war! I'm not <a href="https://en.wikipedia.org/wiki/Grigori_Perelman" target="_blank" rel="noreferrer">Grigori Perelman</a>;
+I'm not rejecting the prize! I'll hurry!"
+
+Of course, you **could** execute the same algo (the static one) again. Now! You're
+ready to vanquish every sou... I won't repeat the joke again, you get the point,
+don't you?
+
+What if we need to calculate the solution **over and over again**? It turns
+out that we can apply a new algo with better time complexity. Thus, we can
+retrieve the solution quicker under _insertions_ and _deletions_ of points—we're
+solving the problem "dynamically" as new inputs arrive.
+
+Tbh, at least for now, I don't want to write a full entry explaining definitions,
+algos, edge cases, and so on, but rather just talk about my experience.
+
+## I had to read 29 hrs per second
+
+During the first week, I delivered a hands-on masterclass in ego: _Did the authors
+cite another paper to understand why we can assume that there's no **red point**
+that doesn't belong to the CH, and that there's no **blue point** inside
+the same CH by taking advantage of a Farthest-Point Voronoi Diagram?_ Then
+what? Surely a 6th-semester CS student can infer the details under the hood while
+reading in the middle of a crowded subway at 6am on Monday.
+
+After one day of thinking I was
+<a href="https://www.thecrimson.com/article/2004/6/10/mark-e-zuckerberg-06-the-whiz/" target="_blank" rel="noreferrer">Mark Zuckerberg in 2004</a>,
+I started reading the paper's references.
+
+The most important part was that I needed to read a whole new paper besides
+my chosen one. That sounds common, but the thing was that I "needed" to
+explain it in class before talking about the main topic. Otherwise, nobody
+would understand anything. So, I had 2.5 weeks to prepare "two" presentations.
+
+It was fun. I enjoyed every second of that suffering. I didn't understand
+some definitions at first until I drew lots of diagrams. I was so nervous on
+presentation day. Yet, I did what I was cut out for (I'll conveniently
+ignore my -458 ELO in LoL from playing Ezreal): talking too much. I got
+a 9/10.
+
+If you want to take a look at my
+<a href="/dynamic-minimum-bichromatic-separating-circle.pdf" target="_blank" rel="noreferrer">slides</a>,
+here you go! They're written in Spanish, btw. Here you can read the 
+<a href="https://www.sciencedirect.com/science/article/pii/S0304397516307046" target="_blank" rel="noreferrer">paper</a>.
+
