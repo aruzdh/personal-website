@@ -2,10 +2,11 @@ import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   site: 'https://aruzdh.dev',
-  integrations: [sitemap()],
+  integrations: [sitemap(), mdx()],
   fonts: [
     {
       provider: fontProviders.fontsource(),
