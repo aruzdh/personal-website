@@ -13,7 +13,7 @@ importers:
         version: 3.7.0
       astro:
         specifier: ^5.17.1
-        version: 5.18.0(rollup@4.59.0)(typescript@5.9.3)
+        version: 5.18.0(rollup@4.59.0)(typescript@6.0.3)
       rehype-katex:
         specifier: ^7.0.1
         version: 7.0.1
@@ -23,6 +23,10 @@ importers:
       sharp:
         specifier: ^0.34.5
         version: 0.34.5
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
 
 packages:
 
@@ -1518,8 +1522,8 @@ packages:
     resolution: {integrity: sha512-TeTSQ6H5YHvpqVwBRcnLDCBnDOHWYu7IvGbHT6N8AOymcr9PJGjc1GTtiWZTYg0NCgYwvnYWEkVChQAr9bjfwA==}
     engines: {node: '>=16'}
 
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2240,7 +2244,7 @@ snapshots:
 
   array-iterate@2.0.1: {}
 
-  astro@5.18.0(rollup@4.59.0)(typescript@5.9.3):
+  astro@5.18.0(rollup@4.59.0)(typescript@6.0.3):
     dependencies:
       '@astrojs/compiler': 2.13.1
       '@astrojs/internal-helpers': 0.7.5
@@ -2291,7 +2295,7 @@ snapshots:
       svgo: 4.0.0
       tinyexec: 1.0.2
       tinyglobby: 0.2.15
-      tsconfck: 3.1.6(typescript@5.9.3)
+      tsconfck: 3.1.6(typescript@6.0.3)
       ultrahtml: 1.6.0
       unifont: 0.7.4
       unist-util-visit: 5.1.0
@@ -2304,7 +2308,7 @@ snapshots:
       yocto-spinner: 0.2.3
       zod: 3.25.76
       zod-to-json-schema: 3.25.1(zod@3.25.76)
-      zod-to-ts: 1.2.0(typescript@5.9.3)(zod@3.25.76)
+      zod-to-ts: 1.2.0(typescript@6.0.3)(zod@3.25.76)
     optionalDependencies:
       sharp: 0.34.5
     transitivePeerDependencies:
@@ -3428,16 +3432,16 @@ snapshots:
 
   trough@2.2.0: {}
 
-  tsconfck@3.1.6(typescript@5.9.3):
+  tsconfck@3.1.6(typescript@6.0.3):
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
 
   tslib@2.8.1:
     optional: true
 
   type-fest@4.41.0: {}
 
-  typescript@5.9.3: {}
+  typescript@6.0.3: {}
 
   ufo@1.6.3: {}
 
@@ -3574,9 +3578,9 @@ snapshots:
     dependencies:
       zod: 3.25.76
 
-  zod-to-ts@1.2.0(typescript@5.9.3)(zod@3.25.76):
+  zod-to-ts@1.2.0(typescript@6.0.3)(zod@3.25.76):
     dependencies:
-      typescript: 5.9.3
+      typescript: 6.0.3
       zod: 3.25.76
 
   zod@3.25.76: {}
