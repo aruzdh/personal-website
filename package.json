@@ -11,15 +11,15 @@
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.0",
-    "@astrojs/sitemap": "^3.7.0",
-    "astro": "^5.17.1",
+    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
     "typescript": "^6.0.3",
-    "wrangler": "^4.105.0"
+    "wrangler": "^4.122.0"
   }
 }
