@@ -1,27 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/MainLayout.astro';
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, 
-    props: { entry },
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { id: post.id }, 
+    props: { post },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { post } = Astro.props;
+const { Content } = await render(post);
 
-const formattedDate = entry.data.date.toISOString().split('T')[0];
+const formattedDate = post.data.date.toISOString().split('T')[0];
 ---
 
-<MainLayout title={entry.data.title} subtitle={entry.data.subtitle}>
+<MainLayout title={post.data.title} subtitle={post.data.subtitle}>
   <article class="post-container">
     
     <header class="post-meta">
       <span class="text-orange">[{formattedDate}]</span>
-      <span class="dim-text"># {entry.data.tag.toLowerCase()}</span>
+      <span class="dim-text"># {post.data.tag.toLowerCase()}</span>
     </header>
 
     <div class="markdown-body">
@@ -29,7 +29,7 @@ const formattedDate = entry.data.date.toISOString().split('T')[0];
     </div>
 
     <div class="post-footer">
-      <a href="/life" class="cmd-link">{"=> "} RETURN_TO_LIFE_LOGS</a>
+      <a href="/blog" class="cmd-link">RETURN TO BLOG LOGS</a>
     </div>
 
   </article>
@@ -37,7 +37,7 @@ const formattedDate = entry.data.date.toISOString().split('T')[0];
 
 <style>
   .post-container {
-    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-family: var(--font-plus-jakarta-sans);
     font-size: 0.85rem;
     line-height: 1.6;
     max-width: 650px;

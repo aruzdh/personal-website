@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "12",
+    "@astrojs/mdx": "^5.0.0",
     "@astrojs/sitemap": "^3.7.0",
     "astro": "^5.17.1",
     "rehype-katex": "^7.0.1",
@@ -19,6 +20,7 @@
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "wrangler": "^4.105.0"
+    "wrangler": "^4.105.0",
+    "typescript": "^6.0.3"
   }
 }
