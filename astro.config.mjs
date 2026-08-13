@@ -4,8 +4,6 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import mdx from '@astrojs/mdx';
 
-import cloudflare from "@astrojs/cloudflare";
-
 export default defineConfig({
   site: 'https://aruzdh.dev',
   integrations: [sitemap(), mdx()],
@@ -24,5 +22,4 @@ export default defineConfig({
     rehypePlugins: [rehypeKatex],
   },
 
-  adapter: cloudflare()
 });
